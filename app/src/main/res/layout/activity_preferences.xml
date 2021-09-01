@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:text="@string/change_total_questions"
+        android:text="@string/total_questions"
         android:gravity="center"
         android:textSize="20sp"/>
 
@@ -47,12 +47,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-    <Button
-        android:id="@+id/btn_total_questions"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_weight="0.5"
-        android:text="hello"/>
+        <TextView
+            android:id="@+id/view_total_questions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/btn_total_questions"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="0.5"
+            android:text="@string/change_total_questions"/>
+
     </LinearLayout>
 
     <TextView

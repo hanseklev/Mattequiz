@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.Locale;
 
 public class PreferencesActivity extends AppCompatActivity {
 
+    private static int totalQuestions = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,12 @@ public class PreferencesActivity extends AppCompatActivity {
 
         norwegianLangBtn.setOnClickListener(view -> changeAppLanguage("no"));
         germanLangBtn.setOnClickListener(view -> changeAppLanguage("de"));
+
+        final TextView totalQuestionsView = findViewById(R.id.view_total_questions);
+        totalQuestionsView.setText(totalQuestions + "");
+
+        Button totalQuestionsBtn = findViewById(R.id.btn_total_questions);
+        totalQuestionsBtn.setOnClickListener(view -> updateTotalQuestions());
     }
 
 
@@ -38,8 +46,18 @@ public class PreferencesActivity extends AppCompatActivity {
         startActivity(refresh);
     }
 
-    private void setTotalQuestions(int totalq){
-        //int ctq = getResources().getInteger(R.integer.totalquestions);
+    private void updateTotalQuestions(){
+        if (totalQuestions < 15){
+            totalQuestions += 5;
+        } else {
+            totalQuestions = 5;
+        }
 
+        final TextView totalQuestionsView = findViewById(R.id.view_total_questions);
+        totalQuestionsView.setText(totalQuestions + "");
+    }
+
+    public static int getTotalQuestions(){
+        return totalQuestions;
     }
 }

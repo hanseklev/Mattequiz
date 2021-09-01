@@ -6,6 +6,8 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 //TODO: maybe remove 'givenAnswer' variable and modify 'answerText' directly
 public class GameActivity extends AppCompatActivity {
 
@@ -39,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
 
         final Button submitAnswerBtn = findViewById(R.id.button_submit_answer);
 
+        /**
         this.questionArray = new Question[]{
                 new Question(getStringArray(R.array.question1)),
                 new Question(getStringArray(R.array.question2)),
@@ -46,6 +49,32 @@ public class GameActivity extends AppCompatActivity {
                 new Question(getStringArray(R.array.question4)),
                 new Question(getStringArray(R.array.question5)),
         };
+        **/
+
+        int totalQuestions = PreferencesActivity.getTotalQuestions();
+        int[] includedQuestions = new int[totalQuestions];
+        int iqCounter = 0;
+        this.questionArray = new Question[totalQuestions];
+        for (int i = 0;i<this.questionArray.length;i++){
+
+            boolean valid = true;
+            do {
+                int randomNumber = ThreadLocalRandom.current().nextInt(1, 15);
+                valid = true;
+
+                for (int j = 0; j < includedQuestions.length; j++) {
+                    if (randomNumber == includedQuestions[j]) {
+                        valid = false;
+                    }
+                }
+                if (valid) {
+                    this.questionArray[i] = getRandomQuestion(randomNumber);
+                    includedQuestions[iqCounter] = randomNumber;
+                    iqCounter++;
+                }
+            }
+            while (!valid);
+        }
 
         questionText.setText(questionArray[questionCount].getQuestion());
 
@@ -141,5 +170,56 @@ public class GameActivity extends AppCompatActivity {
 
     String getGivenAnswer() {
         return givenAnswer;
+    }
+
+    private Question getRandomQuestion(int randomNumber){
+        Question q;
+        switch (randomNumber){
+            case 14:
+                q = new Question(getStringArray(R.array.question15));
+                break;
+            case 13:
+                q = new Question(getStringArray(R.array.question14));
+                break;
+            case 12:
+                q = new Question(getStringArray(R.array.question13));
+                break;
+            case 11:
+                q = new Question(getStringArray(R.array.question12));
+                break;
+            case 10:
+                q = new Question(getStringArray(R.array.question11));
+                break;
+            case 9:
+                q = new Question(getStringArray(R.array.question10));
+                break;
+            case 8:
+                q = new Question(getStringArray(R.array.question9));
+                break;
+            case 7:
+                q = new Question(getStringArray(R.array.question8));
+                break;
+            case 6:
+                q = new Question(getStringArray(R.array.question7));
+                break;
+            case 5:
+                q = new Question(getStringArray(R.array.question6));
+                break;
+            case 4:
+                q = new Question(getStringArray(R.array.question5));
+                break;
+            case 3:
+                q = new Question(getStringArray(R.array.question4));
+                break;
+            case 2:
+                q = new Question(getStringArray(R.array.question3));
+                break;
+            case 1:
+                q = new Question(getStringArray(R.array.question2));
+                break;
+            default:
+                q = new Question(getStringArray(R.array.question1));
+        }
+        return q;
     }
 }
