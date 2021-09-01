@@ -11,6 +11,6 @@
 
     <string name="btn_game_erase">Löschen</string>
     <string name="submit_answer">Antworten</string>
-
+    <string name="change_total_questions">Gesamte Fragen</string>
 
 </resources>

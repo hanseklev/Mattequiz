@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_game.xml" value="0.11822916666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.11822916666666666" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_game.xml" value="0.16" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_preferences.xml" value="0.1" />
       </map>
     </option>
   </component>

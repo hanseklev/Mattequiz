@@ -37,4 +37,9 @@ public class PreferencesActivity extends AppCompatActivity {
         finish();
         startActivity(refresh);
     }
+
+    private void setTotalQuestions(int totalq){
+        //int ctq = getResources().getInteger(R.integer.totalquestions);
+
+    }
 }
