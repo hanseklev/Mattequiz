@@ -54,4 +54,29 @@
         <item>"3"</item>
         <item>"7"</item>
     </string-array>
+    <string-array name="question6">
+        <item>"5"</item>
+        <item>"14"</item>
+        <item>"19"</item>
+    </string-array>
+    <string-array name="question7">
+        <item>"3"</item>
+        <item>"9"</item>
+        <item>"12"</item>
+    </string-array>
+    <string-array name="question8">
+        <item>"17"</item>
+        <item>"17"</item>
+        <item>"34"</item>
+    </string-array>
+    <string-array name="question9">
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"11"</item>
+    </string-array>
+    <string-array name="question10">
+        <item>"34"</item>
+        <item>"7"</item>
+        <item>"41"</item>
+    </string-array>
 </resources>
