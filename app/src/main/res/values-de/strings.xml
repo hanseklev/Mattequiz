@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mattes Quiz</string>
+    <string name="start_game">Spiele starten</string>
+    <string name="show_stats">Siehe Statistiken</string>
+    <string name="preferences">Einstellungen</string>
+    <string name="change_language">Sprache ändern</string>
+    <string name="norwegian">Norwegische</string>
+    <string name="german">Deutsch</string>
+    <string name="reset_stats">Zurücksetzen</string>
+
+    <string name="btn_game_erase">Löschen</string>
+    <string name="submit_answer">Antworten</string>
+
+
+</resources>
