@@ -5,9 +5,6 @@
     <string name="start_game">Start spillet</string>
     <string name="show_stats">Se statistikk</string>
     <string name="preferences">Preferanser</string>
-    <string name="change_language">Endre språk</string>
-    <string name="norwegian">Norsk</string>
-    <string name="german">Tysk</string>
     <string name="reset_stats">Nullstill</string>
 
     <!--Game buttons-->
@@ -25,6 +22,12 @@
 
     <string name="submit_answer">Svar</string>
 
+    <!-- Preferences -->
+    <string name="change_language">Endre språk</string>
+    <string name="norwegian">Norsk</string>
+    <string name="german">Tysk</string>
+    <string name="total_questions">Totale Spørsmål</string>
+    <string name="change_total_questions">Endre</string>
 
     <!--Game questions-->
     <!--Last item is the answer-->
@@ -55,28 +58,54 @@
         <item>"7"</item>
     </string-array>
     <string-array name="question6">
-        <item>"5"</item>
-        <item>"14"</item>
-        <item>"19"</item>
+        <item>"33"</item>
+        <item>"11"</item>
+        <item>"44"</item>
     </string-array>
     <string-array name="question7">
-        <item>"3"</item>
-        <item>"9"</item>
-        <item>"12"</item>
+        <item>"17"</item>
+        <item>"4"</item>
+        <item>"21"</item>
     </string-array>
     <string-array name="question8">
-        <item>"17"</item>
-        <item>"17"</item>
-        <item>"34"</item>
+        <item>"18"</item>
+        <item>"24"</item>
+        <item>"42"</item>
     </string-array>
     <string-array name="question9">
-        <item>"5"</item>
+        <item>"13"</item>
         <item>"6"</item>
-        <item>"11"</item>
+        <item>"19"</item>
     </string-array>
     <string-array name="question10">
-        <item>"34"</item>
-        <item>"7"</item>
-        <item>"41"</item>
+        <item>"12"</item>
+        <item>"8"</item>
+        <item>"20"</item>
     </string-array>
+    <string-array name="question11">
+        <item>"5"</item>
+        <item>"5"</item>
+        <item>"10"</item>
+    </string-array>
+    <string-array name="question12">
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"15"</item>
+    </string-array>
+    <string-array name="question13">
+        <item>"2"</item>
+        <item>"2"</item>
+        <item>"4"</item>
+    </string-array>
+    <string-array name="question14">
+        <item>"5"</item>
+        <item>"1"</item>
+        <item>"6"</item>
+    </string-array>
+    <string-array name="question15">
+        <item>"0"</item>
+        <item>"0"</item>
+        <item>"0"</item>
+    </string-array>
+
 </resources>
