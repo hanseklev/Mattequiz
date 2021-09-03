@@ -4,4 +4,9 @@
     <style name="BlueText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#89CFF0</item>
     </style>
+    <style name="numPadButton">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="backgroundTint">@color/baby_blue</item>
+    </style>
 </resources>
