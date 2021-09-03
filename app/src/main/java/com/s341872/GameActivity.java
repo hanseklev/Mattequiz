@@ -59,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
 
             boolean valid = true;
             do {
-                int randomNumber = ThreadLocalRandom.current().nextInt(1, 15);
+                int randomNumber = ThreadLocalRandom.current().nextInt(0, 16);
                 valid = true;
 
                 for (int j = 0; j < includedQuestions.length; j++) {
@@ -177,48 +177,63 @@ public class GameActivity extends AppCompatActivity {
         switch (randomNumber){
             case 14:
                 q = new Question(getStringArray(R.array.question15));
+                System.out.println("14");
                 break;
             case 13:
                 q = new Question(getStringArray(R.array.question14));
+                System.out.println("13");
                 break;
             case 12:
                 q = new Question(getStringArray(R.array.question13));
+                System.out.println("12");
                 break;
             case 11:
                 q = new Question(getStringArray(R.array.question12));
+                System.out.println("11");
                 break;
             case 10:
                 q = new Question(getStringArray(R.array.question11));
+                System.out.println("10");
                 break;
             case 9:
                 q = new Question(getStringArray(R.array.question10));
+                System.out.println("9");
                 break;
             case 8:
                 q = new Question(getStringArray(R.array.question9));
+                System.out.println("8");
                 break;
             case 7:
                 q = new Question(getStringArray(R.array.question8));
+                System.out.println("7");
                 break;
             case 6:
                 q = new Question(getStringArray(R.array.question7));
+                System.out.println("6");
                 break;
             case 5:
                 q = new Question(getStringArray(R.array.question6));
+                System.out.println("5");
                 break;
             case 4:
                 q = new Question(getStringArray(R.array.question5));
+                System.out.println("4");
                 break;
             case 3:
                 q = new Question(getStringArray(R.array.question4));
+                System.out.println("3");
                 break;
             case 2:
                 q = new Question(getStringArray(R.array.question3));
+                System.out.println("2");
                 break;
             case 1:
                 q = new Question(getStringArray(R.array.question2));
+                System.out.println("1");
                 break;
             default:
                 q = new Question(getStringArray(R.array.question1));
+                System.out.println("0");
         }
         return q;
     }
