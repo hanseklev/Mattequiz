@@ -1,3 +1,4 @@
+
 package com.s341872;
 
 import android.os.Bundle;
@@ -6,13 +7,17 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
-//TODO: maybe remove 'givenAnswer' variable and modify 'answerText' directly
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class GameActivity extends AppCompatActivity {
 
-    private String givenAnswer = "";
-    private Question[] questionArray;
-    private int questionCount = 0;
-    //private int score;
+    //TODO: Retrieve this value from preferences
+    private int totalQuestions = 5;
+    private List<Question> questionArray;
+    private int currentQuestion = 0;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,97 +27,64 @@ public class GameActivity extends AppCompatActivity {
         final TextView questionText = findViewById(R.id.txt_question);
         final TextView answerText = findViewById(R.id.txt_answer);
 
-        final Button numPadBtnOne = findViewById(R.id.button_game_one);
-        final Button numPadBtnTwo = findViewById(R.id.button_game_two);
-        final Button numPadBtnThree = findViewById(R.id.button_game_three);
-        final Button numPadBtnFour = findViewById(R.id.button_game_four);
-        final Button numPadBtnFive = findViewById(R.id.button_game_five);
-        final Button numPadBtnSix = findViewById(R.id.button_game_six);
-        final Button numPadBtnSeven = findViewById(R.id.button_game_seven);
-        final Button numPadBtnEight = findViewById(R.id.button_game_eight);
-        final Button numPadBtnNine = findViewById(R.id.button_game_nine);
-        final Button numPadBtnZero = findViewById(R.id.button_game_zero);
+        final Button numPadBtn1 = findViewById(R.id.button_game_one);
+        final Button numPadBtn2 = findViewById(R.id.button_game_two);
+        final Button numPadBtn3 = findViewById(R.id.button_game_three);
+        final Button numPadBtn4 = findViewById(R.id.button_game_four);
+        final Button numPadBtn5 = findViewById(R.id.button_game_five);
+        final Button numPadBtn6 = findViewById(R.id.button_game_six);
+        final Button numPadBtn7 = findViewById(R.id.button_game_seven);
+        final Button numPadBtn8 = findViewById(R.id.button_game_eight);
+        final Button numPadBtn9 = findViewById(R.id.button_game_nine);
+        final Button numPadBtn0 = findViewById(R.id.button_game_zero);
 
-        //TODO:
         final Button numPadBtnDelete = findViewById(R.id.button_game_delete);
-
-
         final Button submitAnswerBtn = findViewById(R.id.button_submit_answer);
 
-        this.questionArray = new Question[]{
-                new Question(getStringArray(R.array.question1)),
-                new Question(getStringArray(R.array.question2)),
-                new Question(getStringArray(R.array.question3)),
-                new Question(getStringArray(R.array.question4)),
-                new Question(getStringArray(R.array.question5)),
-        };
+        //Initializes question-array and writes the first question to the screen
+        questionArray = initializeQuestions();
+        Log.d("ARRAY", questionArray.toString());
 
-        questionText.setText(questionArray[questionCount].getQuestion());
+        questionText.setText(questionArray.get(currentQuestion).getQuestion());
 
 
-        numPadBtnZero.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "0");
-            answerText.setText(getGivenAnswer());
+        //Event handlers for buttons
+        numPadBtn0.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "0")));
+
+        numPadBtn1.setOnClickListener(view ->
+                answerText.setText(updateAnswerText(answerText, "1")));
+
+        numPadBtn2.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "2")));
+
+        numPadBtn3.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "3")));
+
+        numPadBtn4.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "4")));
+
+        numPadBtn5.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "5")));
+
+        numPadBtn6.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "6")));
+
+        numPadBtn7.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "7")));
+
+        numPadBtn8.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "8")));
+
+        numPadBtn9.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "9")));
+
+        numPadBtnDelete.setOnClickListener(view -> {
+            String oldText = String.valueOf(answerText.getText());
+            if (oldText.length() > 0)
+                answerText.setText(oldText.substring(0, oldText.length() - 1));
         });
-        numPadBtnOne.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "1");
-            answerText.setText(getGivenAnswer());
-        });
-        numPadBtnTwo.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "2");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnThree.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "3");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnFour.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "4");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnFive.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "5");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnSix.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "6");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnSeven.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "7");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnEight.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "8");
-            answerText.setText(getGivenAnswer());
-
-        });
-        numPadBtnNine.setOnClickListener(view -> {
-            setGivenAnswer(getGivenAnswer() + "9");
-            answerText.setText(getGivenAnswer());
-        });
-
-       /* numPadBtnDelete.setOnClickListener(view -> {
-            setGivenAnswer();
-        });*/
 
 
         submitAnswerBtn.setOnClickListener(view -> {
-            if (getGivenAnswer().length() > 0) {
-                Log.d("ANSWER", getGivenAnswer());
-                if (givenAnswer.equals(questionArray[questionCount].getAnswer())) {
-                    //score++;
+            if (answerText.getText().length() > 0) {
+                if (answerText.getText().equals(questionArray.get(currentQuestion).getAnswer())) {
+                    score++;
                     System.out.println("Riktig svar!!");
                 } else {
-                    System.out.println("Feil svar:(Riktig svar er" + questionArray[questionCount].getAnswer());
+                    System.out.println("Feil svar:(Riktig svar er" + questionArray.get(currentQuestion).getAnswer());
                 }
-                setGivenAnswer("");
                 answerText.setText("");
                 nextQuestion(questionText);
             } else {
@@ -121,25 +93,51 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
+    private String updateAnswerText(TextView answer, String newInput) {
+        String oldText = String.valueOf(answer.getText());
+        return oldText + newInput;
+    }
+
+    //Returns an array with randomized questions and desired length
+    private List<Question> initializeQuestions() {
+        List<Question> array = new ArrayList<>();
+
+        array.add(new Question(getStringArray(R.array.question1)));
+        array.add(new Question(getStringArray(R.array.question2)));
+        array.add(new Question(getStringArray(R.array.question3)));
+        array.add(new Question(getStringArray(R.array.question4)));
+        array.add(new Question(getStringArray(R.array.question5)));
+        array.add(new Question(getStringArray(R.array.question6)));
+        array.add(new Question(getStringArray(R.array.question7)));
+        array.add(new Question(getStringArray(R.array.question8)));
+        array.add(new Question(getStringArray(R.array.question9)));
+        array.add(new Question(getStringArray(R.array.question10)));
+        array.add(new Question(getStringArray(R.array.question11)));
+        array.add(new Question(getStringArray(R.array.question12)));
+        array.add(new Question(getStringArray(R.array.question13)));
+        array.add(new Question(getStringArray(R.array.question14)));
+        array.add(new Question(getStringArray(R.array.question15)));
+
+        Collections.shuffle(array);
+
+        this.totalQuestions = PreferencesActivity.getTotalQuestions();
+
+        return array.subList(0, this.totalQuestions);
+    }
+
+
     private String[] getStringArray(int id) {
         return getResources().getStringArray(id);
     }
 
 
     private void nextQuestion(TextView questionTxt) {
-        if (questionCount < questionArray.length - 1) {
-            this.questionCount++;
-            questionTxt.setText(questionArray[questionCount].getQuestion());
+        if (currentQuestion < questionArray.size() - 1) {
+            currentQuestion++;
+            questionTxt.setText(questionArray.get(currentQuestion).getQuestion());
         } else {
-            System.out.println("QUIZ ER FERDIG");
+            questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
         }
     }
 
-    void setGivenAnswer(String number) {
-        this.givenAnswer = number;
-    }
-
-    String getGivenAnswer() {
-        return givenAnswer;
-    }
 }
