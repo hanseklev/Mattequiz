@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.2677083333333333" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_chart.xml" value="0.2462962962962963" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_play_button.xml" value="0.2462962962962963" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_game.xml" value="0.16" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_preferences.xml" value="0.1" />
