@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/button_start_game"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:backgroundTint="@color/baby_blue"
+        android:padding="75dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_play_button" />
+    <!--
+            android:drawableStart="@drawable/ic_calc"
+    -->
+
+    <ImageButton
+        android:id="@+id/button_stats"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:backgroundTint="@color/baby_blue"
+        android:padding="75dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_chart"/>
+    <!-- android:drawableStart="@drawable/ic_stats"
+-->
+
+    <ImageButton
+        android:id="@+id/button_preferences"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:backgroundTint="@color/baby_blue"
+        android:padding="80dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_settings_cog"/>
+
+
+    <!--        android:drawableStart="@drawable/ic_preferences"
+-->
+
+</android.widget.LinearLayout>

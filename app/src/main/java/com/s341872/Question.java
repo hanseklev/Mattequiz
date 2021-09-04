@@ -6,7 +6,7 @@ public class Question {
     private final String answer;
 
     public Question(String[] array) {
-        this.question = array[0] + " + " + array[1];
+        this.question = array[0] + " + " + array[1] + " =";
         this.answer = array[2];
     }
 

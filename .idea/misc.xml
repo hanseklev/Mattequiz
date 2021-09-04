@@ -5,8 +5,17 @@
       <map>
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.2677083333333333" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_chart.xml" value="0.2462962962962963" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_main_menu.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_play_button.xml" value="0.2462962962962963" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/drawable-anydpi/ic_settings_cog.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout-land/activity_game.xml" value="0.22" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout-land/activity_game_end.xml" value="0.20987654320987653" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout-land/activity_preferences.xml" value="0.1" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout-land/activity_stats.xml" value="0.1" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_end_game.xml" value="0.21467391304347827" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_game.xml" value="0.16" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_game_end.xml" value="0.1" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Mattequiz/app/src/main/res/layout/activity_preferences.xml" value="0.1" />
       </map>
