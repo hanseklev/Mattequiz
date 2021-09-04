@@ -11,9 +11,9 @@
         android:id="@+id/txt_game_progress"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textSize="20sp"
+        android:paddingEnd="20dp"
         android:textAlignment="viewEnd"
-        android:paddingEnd="20dp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/txt_question"
@@ -28,129 +28,87 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:gravity="center"
-        android:text="halo"
         android:textSize="28sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <GridLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/button_game_one"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_one" />
-
-            <Button
-                android:id="@+id/button_game_two"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-
-                android:text="@string/btn_game_two" />
-
-            <Button
-                android:id="@+id/button_game_three"
-
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_three" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/button_game_four"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_four" />
-
-            <Button
-                android:id="@+id/button_game_five"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_five" />
-
-            <Button
-                android:id="@+id/button_game_six"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_six" />
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:rowCount="4">
 
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/button_game_one"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_one" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_game_two"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_two" />
 
-            <Button
-                android:id="@+id/button_game_seven"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_seven" />
-
-            <Button
-                android:id="@+id/button_game_eight"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_eight" />
-
-            <Button
-                android:id="@+id/button_game_nine"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_nine" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v4.widget.Space
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"></android.support.v4.widget.Space>
-
-            <Button
-                android:id="@+id/button_game_zero"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_zero" />
-
-            <Button
-                android:id="@+id/button_game_delete"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:text="@string/btn_game_erase" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/button_game_three"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_three" />
 
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/button_game_four"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_four" />
+
+        <Button
+            android:id="@+id/button_game_five"
+            style="@style/numPadButton"
+
+            android:text="@string/btn_game_five" />
+
+        <Button
+            android:id="@+id/button_game_six"
+            style="@style/numPadButton"
+
+            android:text="@string/btn_game_six" />
+
+
+        <Button
+            android:id="@+id/button_game_seven"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_seven" />
+
+        <Button
+            android:id="@+id/button_game_eight"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_eight" />
+
+        <Button
+            android:id="@+id/button_game_nine"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_nine" />
+
+
+        <android.support.v4.widget.Space style="@style/numPadButton"
+
+            />
+
+        <Button
+            android:id="@+id/button_game_zero"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_zero" />
+
+        <Button
+            android:id="@+id/button_game_delete"
+            style="@style/numPadButton"
+            android:text="@string/btn_game_erase" />
+
+    </GridLayout>
 
     <Button
         android:id="@+id/button_submit_answer"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
+        android:layout_width="118dp"
+        android:layout_height="86dp"
         android:layout_marginTop="25dp"
         android:text="@string/submit_answer" />
 
