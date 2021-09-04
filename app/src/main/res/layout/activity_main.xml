@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/button_start_game"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:backgroundTint="@color/baby_blue"
-        android:text="@string/start_game" />
-
+        android:padding="75dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_play_button" />
     <!--
             android:drawableStart="@drawable/ic_calc"
     -->
 
-    <Button
+    <ImageButton
         android:id="@+id/button_stats"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:backgroundTint="@color/baby_blue"
-        android:text="@string/show_stats" />
+        android:padding="75dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_chart"/>
     <!-- android:drawableStart="@drawable/ic_stats"
 -->
 
-    <Button
+    <ImageButton
         android:id="@+id/button_preferences"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:backgroundTint="@color/baby_blue"
-        android:text="@string/preferences" />
+        android:padding="80dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/ic_settings_cog"/>
+
+
     <!--        android:drawableStart="@drawable/ic_preferences"
 -->
 

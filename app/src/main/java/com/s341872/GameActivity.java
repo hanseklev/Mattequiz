@@ -6,12 +6,15 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
-    private static final int NUMBER_OF_QUESTIONS = 5;
-    private Question[] questionArray;
+    //TODO: Retrieve this value from preferences
+    private int totalQuestions = 5;
+    private List<Question> questionArray;
     private int currentQuestion = 0;
     private int score;
 
@@ -37,34 +40,11 @@ public class GameActivity extends AppCompatActivity {
         final Button numPadBtnDelete = findViewById(R.id.button_game_delete);
         final Button submitAnswerBtn = findViewById(R.id.button_submit_answer);
 
+        //Initializes question-array and writes the first question to the screen
+        questionArray = initializeQuestions();
+        Log.d("ARRAY", questionArray.toString());
 
-        int totalQuestions = PreferencesActivity.getTotalQuestions();
-        int[] includedQuestions = new int[totalQuestions];
-        int iqCounter = 0;
-        questionArray = new Question[totalQuestions];
-        for (int i = 0; i < this.questionArray.length; i++) {
-
-            boolean valid;
-            do {
-                int randomNumber = ThreadLocalRandom.current().nextInt(1, 15);
-                valid = true;
-
-                for (int includedQuestion : includedQuestions) {
-                    if (randomNumber == includedQuestion) {
-                        valid = false;
-                    }
-                }
-                if (valid) {
-                    questionArray[i] = getRandomQuestion(randomNumber);
-                    includedQuestions[iqCounter] = randomNumber;
-                    iqCounter++;
-                }
-            }
-            while (!valid);
-        }
-
-        //Prints the first question to the screen
-        questionText.setText(questionArray[currentQuestion].getQuestion());
+        questionText.setText(questionArray.get(currentQuestion).getQuestion());
 
 
         //Event handlers for buttons
@@ -97,11 +77,11 @@ public class GameActivity extends AppCompatActivity {
 
         submitAnswerBtn.setOnClickListener(view -> {
             if (answerText.getText().length() > 0) {
-                if (answerText.getText().equals(questionArray[currentQuestion].getAnswer())) {
+                if (answerText.getText().equals(questionArray.get(currentQuestion).getAnswer())) {
                     score++;
                     System.out.println("Riktig svar!!");
                 } else {
-                    System.out.println("Feil svar:(Riktig svar er" + questionArray[currentQuestion].getAnswer());
+                    System.out.println("Feil svar:(Riktig svar er" + questionArray.get(currentQuestion).getAnswer());
                 }
                 answerText.setText("");
                 nextQuestion(questionText);
@@ -116,6 +96,33 @@ public class GameActivity extends AppCompatActivity {
         return oldText + newInput;
     }
 
+    //Returns an array with randomized questions and desired length
+    private List<Question> initializeQuestions() {
+        List<Question> array = new ArrayList<>();
+
+        array.add(new Question(getStringArray(R.array.question1)));
+        array.add(new Question(getStringArray(R.array.question2)));
+        array.add(new Question(getStringArray(R.array.question3)));
+        array.add(new Question(getStringArray(R.array.question4)));
+        array.add(new Question(getStringArray(R.array.question5)));
+        array.add(new Question(getStringArray(R.array.question6)));
+        array.add(new Question(getStringArray(R.array.question7)));
+        array.add(new Question(getStringArray(R.array.question8)));
+        array.add(new Question(getStringArray(R.array.question9)));
+        array.add(new Question(getStringArray(R.array.question10)));
+        array.add(new Question(getStringArray(R.array.question11)));
+        array.add(new Question(getStringArray(R.array.question12)));
+        array.add(new Question(getStringArray(R.array.question13)));
+        array.add(new Question(getStringArray(R.array.question14)));
+        array.add(new Question(getStringArray(R.array.question15)));
+
+        Collections.shuffle(array);
+
+        this.totalQuestions = PreferencesActivity.getTotalQuestions();
+
+        return array.subList(0, this.totalQuestions);
+    }
+
 
     private String[] getStringArray(int id) {
         return getResources().getStringArray(id);
@@ -123,63 +130,12 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void nextQuestion(TextView questionTxt) {
-        if (currentQuestion < questionArray.length - 1) {
+        if (currentQuestion < questionArray.size() - 1) {
             currentQuestion++;
-            questionTxt.setText(questionArray[currentQuestion].getQuestion());
+            questionTxt.setText(questionArray.get(currentQuestion).getQuestion());
         } else {
-            questionTxt.setText(String.format("Score:%s/%s", score, NUMBER_OF_QUESTIONS));
+            questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
         }
     }
 
-
-    private Question getRandomQuestion(int randomNumber) {
-        Question q;
-        switch (randomNumber) {
-            case 14:
-                q = new Question(getStringArray(R.array.question15));
-                break;
-            case 13:
-                q = new Question(getStringArray(R.array.question14));
-                break;
-            case 12:
-                q = new Question(getStringArray(R.array.question13));
-                break;
-            case 11:
-                q = new Question(getStringArray(R.array.question12));
-                break;
-            case 10:
-                q = new Question(getStringArray(R.array.question11));
-                break;
-            case 9:
-                q = new Question(getStringArray(R.array.question10));
-                break;
-            case 8:
-                q = new Question(getStringArray(R.array.question9));
-                break;
-            case 7:
-                q = new Question(getStringArray(R.array.question8));
-                break;
-            case 6:
-                q = new Question(getStringArray(R.array.question7));
-                break;
-            case 5:
-                q = new Question(getStringArray(R.array.question6));
-                break;
-            case 4:
-                q = new Question(getStringArray(R.array.question5));
-                break;
-            case 3:
-                q = new Question(getStringArray(R.array.question4));
-                break;
-            case 2:
-                q = new Question(getStringArray(R.array.question3));
-                break;
-            case 1:
-                q = new Question(getStringArray(R.array.question2));
-                break;
-            default:
-                q = new Question(getStringArray(R.array.question1));
-        }
-        return q;
-    }
 }
