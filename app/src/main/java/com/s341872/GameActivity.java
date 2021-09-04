@@ -5,14 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import java.util.List;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameActivity extends AppCompatActivity {
 
     private static final int NUMBER_OF_QUESTIONS = 5;
-    private List<Question> questionArray;
+    private Question[] questionArray;
     private int currentQuestion = 0;
     private int score;
 
@@ -42,32 +41,30 @@ public class GameActivity extends AppCompatActivity {
         int totalQuestions = PreferencesActivity.getTotalQuestions();
         int[] includedQuestions = new int[totalQuestions];
         int iqCounter = 0;
-        this.questionArray = new Question[totalQuestions];
-        for (int i = 0;i<this.questionArray.length;i++){
+        questionArray = new Question[totalQuestions];
+        for (int i = 0; i < this.questionArray.length; i++) {
 
-            boolean valid = true;
+            boolean valid;
             do {
                 int randomNumber = ThreadLocalRandom.current().nextInt(1, 15);
                 valid = true;
 
-                for (int j = 0; j < includedQuestions.length; j++) {
-                    if (randomNumber == includedQuestions[j]) {
+                for (int includedQuestion : includedQuestions) {
+                    if (randomNumber == includedQuestion) {
                         valid = false;
                     }
                 }
                 if (valid) {
-                    this.questionArray[i] = getRandomQuestion(randomNumber);
+                    questionArray[i] = getRandomQuestion(randomNumber);
                     includedQuestions[iqCounter] = randomNumber;
                     iqCounter++;
                 }
             }
             while (!valid);
         }
-        //Initializes question-array and writes the first question to the screen
-        questionArray = initializeQuestions();
-        Log.d("ARRAY", questionArray.toString());
 
-        questionText.setText(questionArray.get(currentQuestion).getQuestion());
+        //Prints the first question to the screen
+        questionText.setText(questionArray[currentQuestion].getQuestion());
 
 
         //Event handlers for buttons
@@ -100,11 +97,11 @@ public class GameActivity extends AppCompatActivity {
 
         submitAnswerBtn.setOnClickListener(view -> {
             if (answerText.getText().length() > 0) {
-                if (answerText.getText().equals(questionArray.get(currentQuestion).getAnswer())) {
+                if (answerText.getText().equals(questionArray[currentQuestion].getAnswer())) {
                     score++;
                     System.out.println("Riktig svar!!");
                 } else {
-                    System.out.println("Feil svar:(Riktig svar er" + questionArray.get(currentQuestion).getAnswer());
+                    System.out.println("Feil svar:(Riktig svar er" + questionArray[currentQuestion].getAnswer());
                 }
                 answerText.setText("");
                 nextQuestion(questionText);
@@ -114,11 +111,10 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    private String updateAnswerText(TextView answer, String newInput) {
-        String oldText = String.valueOf(answer.getText());
+    private String updateAnswerText(TextView answerTxt, String newInput) {
+        String oldText = String.valueOf(answerTxt.getText());
         return oldText + newInput;
     }
-
 
 
     private String[] getStringArray(int id) {
@@ -127,18 +123,18 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void nextQuestion(TextView questionTxt) {
-        if (currentQuestion < questionArray.size() - 1) {
+        if (currentQuestion < questionArray.length - 1) {
             currentQuestion++;
-            questionTxt.setText(questionArray.get(currentQuestion).getQuestion());
+            questionTxt.setText(questionArray[currentQuestion].getQuestion());
         } else {
             questionTxt.setText(String.format("Score:%s/%s", score, NUMBER_OF_QUESTIONS));
         }
     }
 
 
-    private Question getRandomQuestion(int randomNumber){
+    private Question getRandomQuestion(int randomNumber) {
         Question q;
-        switch (randomNumber){
+        switch (randomNumber) {
             case 14:
                 q = new Question(getStringArray(R.array.question15));
                 break;
