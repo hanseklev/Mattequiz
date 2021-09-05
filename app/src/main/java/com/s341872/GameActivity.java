@@ -1,6 +1,7 @@
 package com.s341872;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -104,33 +105,19 @@ public class GameActivity extends AppCompatActivity {
     //Returns an array with randomized questions and desired length
     private List<Question> initializeQuestions() {
         List<Question> array = new ArrayList<>();
+        TypedArray typedArrQuestions = getResources().obtainTypedArray(R.array.questions_container);
 
-        array.add(new Question(getStringArray(R.array.question1)));
-        array.add(new Question(getStringArray(R.array.question2)));
-        array.add(new Question(getStringArray(R.array.question3)));
-        array.add(new Question(getStringArray(R.array.question4)));
-        array.add(new Question(getStringArray(R.array.question5)));
-        array.add(new Question(getStringArray(R.array.question6)));
-        array.add(new Question(getStringArray(R.array.question7)));
-        array.add(new Question(getStringArray(R.array.question8)));
-        array.add(new Question(getStringArray(R.array.question9)));
-        array.add(new Question(getStringArray(R.array.question10)));
-        array.add(new Question(getStringArray(R.array.question11)));
-        array.add(new Question(getStringArray(R.array.question12)));
-        array.add(new Question(getStringArray(R.array.question13)));
-        array.add(new Question(getStringArray(R.array.question14)));
-        array.add(new Question(getStringArray(R.array.question15)));
+        for (int i = 0; i < typedArrQuestions.length(); i++) {
+            int id = typedArrQuestions.getResourceId(i, 0);
+            array.add(new Question(getResources().getStringArray(id)));
+        }
+        typedArrQuestions.recycle();
 
         Collections.shuffle(array);
 
-        this.totalQuestions = PreferencesActivity.getTotalQuestions();
+        totalQuestions = PreferencesActivity.getTotalQuestions();
 
-        return array.subList(0, this.totalQuestions);
-    }
-
-
-    private String[] getStringArray(int id) {
-        return getResources().getStringArray(id);
+        return array.subList(0, totalQuestions);
     }
 
 
@@ -146,7 +133,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public static String getFinalScore(){
+    public static String getFinalScore() {
         return finalScore;
     }
 }

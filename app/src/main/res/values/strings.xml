@@ -107,4 +107,22 @@
         <item>"0"</item>
     </string-array>
 
+    <!--Array container for all the questions-->
+    <array name="questions_container">
+        <item>@array/question1</item>
+        <item>@array/question2</item>
+        <item>@array/question3</item>
+        <item>@array/question4</item>
+        <item>@array/question5</item>
+        <item>@array/question6</item>
+        <item>@array/question7</item>
+        <item>@array/question8</item>
+        <item>@array/question9</item>
+        <item>@array/question10</item>
+        <item>@array/question11</item>
+        <item>@array/question12</item>
+        <item>@array/question13</item>
+        <item>@array/question14</item>
+        <item>@array/question15</item>
+    </array>
 </resources>
