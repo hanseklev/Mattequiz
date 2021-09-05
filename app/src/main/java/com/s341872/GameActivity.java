@@ -1,5 +1,6 @@
 package com.s341872;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     private List<Question> questionArray;
     private int currentQuestion = 0;
     private int score;
+    private static String finalScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +93,12 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    private String updateAnswerText(TextView answerTxt, String newInput) {
-        String oldText = String.valueOf(answerTxt.getText());
-        return oldText + newInput;
+    private String updateAnswerText(TextView answer, String newInput) {
+        String oldText = String.valueOf(answer.getText());
+        if (oldText.length() < 4) {
+            return oldText + newInput;
+        }
+        return oldText;
     }
 
     //Returns an array with randomized questions and desired length
@@ -134,8 +139,14 @@ public class GameActivity extends AppCompatActivity {
             currentQuestion++;
             questionTxt.setText(questionArray.get(currentQuestion).getQuestion());
         } else {
-            questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
+            //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
+            finalScore = String.format("Score:%s/%s", score, this.totalQuestions);
+            Intent intent = new Intent(this, GameEndActivity.class);
+            startActivity(intent);
         }
     }
 
+    public static String getFinalScore(){
+        return finalScore;
+    }
 }

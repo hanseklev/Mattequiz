@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Main language norwegian (NO)-->
+<?xml version="1.0" encoding="utf-8"?><!--Main language norwegian (NO)-->
 <resources>
     <string name="app_name">Mattequiz</string>
     <string name="start_game">Start spillet</string>
@@ -17,7 +16,7 @@
     <string name="btn_game_seven" translatable="false">7</string>
     <string name="btn_game_eight" translatable="false">8</string>
     <string name="btn_game_nine" translatable="false">9</string>
-    <string name="btn_game_zero" translatable="false" >0</string>
+    <string name="btn_game_zero" translatable="false">0</string>
     <string name="btn_game_erase">Slett</string>
 
     <string name="submit_answer">Svar</string>
