@@ -4,49 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/button_start_game"
-        android:layout_width="0dp"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_play_button" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="75dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_play_button" />
-    <!--
-            android:drawableStart="@drawable/ic_calc"
-    -->
+        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/button_stats"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="75dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_chart"/>
-    <!-- android:drawableStart="@drawable/ic_stats"
--->
-
-    <ImageButton
-        android:id="@+id/button_preferences"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="80dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_settings_cog"/>
+        <ImageButton
+            android:id="@+id/button_start_game"
+            style="@style/main_screen_land"
+            android:contentDescription="@string/start_game"
+            app:srcCompat="@drawable/ic_play_button" />
 
 
-    <!--        android:drawableStart="@drawable/ic_preferences"
--->
+        <ImageButton
+            android:id="@+id/button_stats"
+            style="@style/main_screen_land"
+            android:backgroundTint="@color/orange"
+            android:contentDescription="@string/show_stats"
+            app:srcCompat="@drawable/ic_chart" />
+
+
+        <ImageButton
+            android:id="@+id/button_preferences"
+            style="@style/main_screen_land"
+            android:backgroundTint="@color/orange"
+            android:contentDescription="@string/preferences"
+            app:srcCompat="@drawable/ic_settings_cog" />
+    </LinearLayout>
 
 </android.widget.LinearLayout>

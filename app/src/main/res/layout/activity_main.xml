@@ -4,49 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical"
+    android:paddingBottom="20dp"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_play_button" />
 
     <ImageButton
         android:id="@+id/button_start_game"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="75dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
+        style="@style/main_screen_button"
+        android:contentDescription="@string/start_game"
         app:srcCompat="@drawable/ic_play_button" />
-    <!--
-            android:drawableStart="@drawable/ic_calc"
-    -->
+
 
     <ImageButton
         android:id="@+id/button_stats"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="75dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_chart"/>
-    <!-- android:drawableStart="@drawable/ic_stats"
--->
+        style="@style/main_screen_button"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/show_stats"
+        app:srcCompat="@drawable/ic_chart" />
+
 
     <ImageButton
         android:id="@+id/button_preferences"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        android:padding="80dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_settings_cog"/>
+        style="@style/main_screen_button"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/preferences"
+        app:srcCompat="@drawable/ic_settings_cog" />
 
-
-    <!--        android:drawableStart="@drawable/ic_preferences"
--->
 
 </android.widget.LinearLayout>

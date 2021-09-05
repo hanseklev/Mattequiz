@@ -14,12 +14,12 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity {
 
-    //TODO: Retrieve this value from preferences
     private int totalQuestions = 5;
     private List<Question> questionArray;
     private int currentQuestion = 0;
     private int score;
     private static String finalScore;
+    private final String gameProgressString = currentQuestion + "/" + totalQuestions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class GameActivity extends AppCompatActivity {
 
         final TextView questionText = findViewById(R.id.txt_question);
         final TextView answerText = findViewById(R.id.txt_answer);
+        final TextView gameProgressText = findViewById(R.id.txt_game_progress);
 
         final Button numPadBtn1 = findViewById(R.id.button_game_one);
         final Button numPadBtn2 = findViewById(R.id.button_game_two);
@@ -48,6 +49,7 @@ public class GameActivity extends AppCompatActivity {
         Log.d("ARRAY", questionArray.toString());
 
         questionText.setText(questionArray.get(currentQuestion).getQuestion());
+        gameProgressText.setText(gameProgressString);
 
 
         //Event handlers for buttons
@@ -87,6 +89,7 @@ public class GameActivity extends AppCompatActivity {
                     System.out.println("Feil svar:(Riktig svar er" + questionArray.get(currentQuestion).getAnswer());
                 }
                 answerText.setText("");
+                gameProgressText.setText(updateProgressText());
                 nextQuestion(questionText);
             } else {
                 Log.d("Answer", "Answer not submitted");
@@ -94,12 +97,19 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
+    // Updates screen when numpad-buttons is pressed.
+    // Limits maximum input to 4 digits
     private String updateAnswerText(TextView answer, String newInput) {
         String oldText = String.valueOf(answer.getText());
         if (oldText.length() < 4) {
             return oldText + newInput;
         }
         return oldText;
+    }
+
+    private String updateProgressText() {
+        int actualCount = currentQuestion + 1;
+        return actualCount + "/" + totalQuestions;
     }
 
     //Returns an array with randomized questions and desired length
@@ -124,7 +134,9 @@ public class GameActivity extends AppCompatActivity {
     private void nextQuestion(TextView questionTxt) {
         if (currentQuestion < questionArray.size() - 1) {
             currentQuestion++;
+
             questionTxt.setText(questionArray.get(currentQuestion).getQuestion());
+
         } else {
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
             finalScore = String.format("Score:%s/%s", score, this.totalQuestions);
