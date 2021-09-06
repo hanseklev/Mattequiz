@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -20,8 +21,8 @@ public class PreferencesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
-        Button norwegianLangBtn = findViewById(R.id.btn_norwegian_language);
-        Button germanLangBtn = findViewById(R.id.btn_german_language);
+        ImageButton norwegianLangBtn = findViewById(R.id.btn_norwegian_language);
+        ImageButton germanLangBtn = findViewById(R.id.btn_german_language);
 
         norwegianLangBtn.setOnClickListener(view -> changeAppLanguage("no"));
         germanLangBtn.setOnClickListener(view -> changeAppLanguage("de"));

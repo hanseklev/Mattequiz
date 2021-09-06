@@ -2,81 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Match"
+    android:layout_marginTop="50dp"
+    android:divider="@drawable/divider_30dp"
+    android:gravity="center"
     android:orientation="vertical"
+    android:showDividers="middle"
     tools:context=".PreferencesActivity">
-    
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"
-        android:text="@string/change_language"
-        android:gravity="center"
-        android:textSize="20sp"/>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    <Button
-        android:id="@+id/btn_norwegian_language"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="@string/norwegian"
-       />
-    <Button
-        android:id="@+id/btn_german_language"
-        android:layout_height="match_parent"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:text="@string/german"
-      />
+        style="@style/MatchWidth"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/textView100_land"
+            android:text="@string/change_language" />
+
+        <ImageButton
+            android:id="@+id/btn_norwegian_language"
+            style="@style/ImageButtonFillFrame"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/norwegian"
+            app:srcCompat="@drawable/ic_flag_norwegian" />
+
+        <ImageButton
+            android:id="@+id/btn_german_language"
+            style="@style/ImageButtonFillFrame"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:contentDescription="@string/german"
+            app:srcCompat="@drawable/ic_flag_germany" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"
-        android:text="@string/total_questions"
-        android:gravity="center"
-        android:textSize="20sp"/>
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        style="@style/MatchWidth"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/textView100_land"
+            android:text="@string/total_questions" />
+
 
         <TextView
             android:id="@+id/view_total_questions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp"/>
+            style="@style/textView100"
+            android:layout_width="100dp" />
+
         <Button
             android:id="@+id/btn_total_questions"
+            style="@style/textView100"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:layout_weight="0.5"
-            android:text="@string/change_total_questions"/>
+            android:text="@string/change_total_questions" />
+
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_weight="1"
-        android:text="@string/reset_stats"
-        android:gravity="center"
-        android:textSize="20sp"/>
-
     <Button
         android:id="@+id/btn_reset_stats"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:text=""/>
+        style="@style/textView100_land"
+        android:background="@color/red"
+        android:text="@string/reset_stats" />
 
 
 </LinearLayout>

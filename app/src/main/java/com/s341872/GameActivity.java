@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,8 +42,8 @@ public class GameActivity extends AppCompatActivity {
         final Button numPadBtn9 = findViewById(R.id.button_game_nine);
         final Button numPadBtn0 = findViewById(R.id.button_game_zero);
 
-        final Button numPadBtnDelete = findViewById(R.id.button_game_delete);
-        final Button submitAnswerBtn = findViewById(R.id.button_submit_answer);
+        final ImageButton numPadBtnDelete = findViewById(R.id.button_game_delete);
+        final ImageButton submitAnswerBtn = findViewById(R.id.button_submit_answer);
 
         //Initializes question-array and writes the first question to the screen
         questionArray = initializeQuestions();

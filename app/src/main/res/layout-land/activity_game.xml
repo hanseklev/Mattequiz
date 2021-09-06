@@ -1,114 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Match"
+    android:gravity="center"
     android:orientation="horizontal"
+    android:paddingTop="5dp"
     tools:context=".GameActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        style="@style/flex_1"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txt_game_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="he"
-            android:layout_gravity="top"
-            android:textSize="20sp"
-            android:padding="10dp" />
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:textAlignment="viewStart"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/txt_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
             android:textSize="28sp" />
 
         <TextView
             android:id="@+id/txt_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
             android:textSize="28sp" />
+
+
+        <ImageButton
+            android:id="@+id/button_submit_answer"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/orange"
+            android:contentDescription="@string/submit_answer"
+            app:srcCompat="@drawable/ic_submit" />
     </LinearLayout>
 
     <GridLayout
-        android:layout_width="wrap_content"
+        style="@style/flex_1"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
         android:columnCount="4"
-        android:orientation="horizontal"
-        android:rowCount="3">
+        android:rowCount="3"
+        android:useDefaultMargins="true">
 
         <Button
             android:id="@+id/button_game_one"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_one" />
 
         <Button
             android:id="@+id/button_game_two"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_two" />
 
         <Button
             android:id="@+id/button_game_three"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_three" />
 
-        <Button
-            android:id="@+id/button_game_delete"
-            style="@style/numPadButton"
-            android:text="@string/btn_game_erase" />
 
         <Button
             android:id="@+id/button_game_four"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_four" />
 
         <Button
             android:id="@+id/button_game_five"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
+
             android:text="@string/btn_game_five" />
 
         <Button
             android:id="@+id/button_game_six"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
+
             android:text="@string/btn_game_six" />
 
-        <Button
-            android:id="@+id/button_game_zero"
-            style="@style/numPadButton"
-            android:text="@string/btn_game_zero" />
 
         <Button
             android:id="@+id/button_game_seven"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_seven" />
 
         <Button
             android:id="@+id/button_game_eight"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_eight" />
 
         <Button
             android:id="@+id/button_game_nine"
-            style="@style/numPadButton"
+            style="@style/numPadButton_land"
             android:text="@string/btn_game_nine" />
 
+
         <Button
-            android:id="@+id/button_submit_answer"
-            style="@style/numPadButton"
-            android:text="@string/submit_answer" />
+            android:id="@+id/button_game_zero"
+            style="@style/numPadButton_land"
+            android:text="@string/btn_game_zero" />
 
-        <!-- <android.support.v4.widget.Space style="@style/numPadButton" />
--->
+        <android.support.v4.widget.Space style="@style/numPadButton_land"
+
+            />
+
+        <ImageButton
+            android:id="@+id/button_game_delete"
+            style="@style/numPadButton_land"
+            android:backgroundTint="@color/red"
+            android:contentDescription="@string/btn_game_erase"
+            app:srcCompat="@drawable/ic_backspace" />
+
     </GridLayout>
-
 
 
 </android.widget.LinearLayout>

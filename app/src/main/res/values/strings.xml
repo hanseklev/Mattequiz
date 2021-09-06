@@ -22,10 +22,10 @@
     <string name="submit_answer">Svar</string>
 
     <!-- Preferences -->
-    <string name="change_language">Endre språk</string>
+    <string name="change_language">Velg språk</string>
     <string name="norwegian">Norsk</string>
     <string name="german">Tysk</string>
-    <string name="total_questions">Totale Spørsmål</string>
+    <string name="total_questions">Antall Spørsmål</string>
     <string name="change_total_questions">Endre</string>
 
     <!--Game questions-->
