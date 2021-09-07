@@ -1,6 +1,8 @@
 package com.s341872;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
 
     private final String question;
     private final String answer;
