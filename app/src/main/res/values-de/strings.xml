@@ -14,4 +14,7 @@
     <string name="total_questions">Gesamte Fragen</string>
     <string name="change_total_questions">Verändern</string>
 
+    <!-- Statistics -->
+    <string name="scores">Partituren</string>
+
 </resources>

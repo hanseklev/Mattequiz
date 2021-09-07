@@ -21,6 +21,9 @@
 
     <string name="submit_answer">Svar</string>
 
+    <!-- Statistics -->
+    <string name="scores">Poengsummer</string>
+
     <!-- Preferences -->
     <string name="change_language">Velg språk</string>
     <string name="norwegian">Norsk</string>
