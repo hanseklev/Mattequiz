@@ -19,21 +19,24 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/show_stats"
         android:padding="75dp"
         android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_chart"/>
+        app:srcCompat="@drawable/ic_chart" />
 
     <ImageButton
         android:id="@+id/button_main_menu"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        app:srcCompat="@drawable/ic_main_menu"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/app_name"
         android:padding="80dp"
         android:scaleType="fitCenter"
-        android:adjustViewBounds="true"/>
+
+        app:srcCompat="@drawable/ic_main_menu" />
 
 </android.widget.LinearLayout>

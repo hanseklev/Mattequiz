@@ -21,6 +21,11 @@
 
     <string name="submit_answer">Svar</string>
 
+    <!--Game dialogs -->
+    <string name="dialog_cancel_game">Avslutte spill?</string>
+    <string name="dialog_yes">Ja</string>
+    <string name="dialog_no">Nei</string>
+
     <!-- Statistics -->
     <string name="scores">Poengsummer</string>
 

@@ -22,6 +22,13 @@ public class GameActivity extends AppCompatActivity {
     private TextView questionText;
     private TextView answerText;
 
+    @Override
+    public void onBackPressed() {
+        CancelGameDialogFragment endGameDialog = new CancelGameDialogFragment();
+        endGameDialog.show(getSupportFragmentManager(), "endGame");
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,11 +108,6 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        System.out.println("HERE: -->");
-        System.out.println(savedInstanceState.getSerializable("questions"));
-        System.out.println("CURRENT:  " + savedInstanceState.getInt("currentQuestion"));
-        System.out.println("SCORE:   " + savedInstanceState.get("score"));
-
 
         questionArray = new QuestionArray();
         questionArray.addAll((QuestionArray) savedInstanceState.getSerializable("questions"));

@@ -14,6 +14,11 @@
     <string name="total_questions">Gesamte Fragen</string>
     <string name="change_total_questions">Verändern</string>
 
+    <!--Game dialogs -->
+    <string name="dialog_cancel_game">Spiele beenden?</string>
+    <string name="dialog_yes">Jawohl</string>
+    <string name="dialog_no">Nein</string>
+
     <!-- Statistics -->
     <string name="scores">Partituren</string>
 

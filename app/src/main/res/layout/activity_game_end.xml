@@ -11,8 +11,8 @@
         android:id="@+id/txt_final_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="150dp"
         android:layout_gravity="center"
+        android:paddingVertical="150dp"
         android:textSize="35sp" />
 
     <ImageButton
@@ -20,21 +20,23 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/show_stats"
         android:padding="45dp"
         android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_chart"/>
+        app:srcCompat="@drawable/ic_chart" />
 
     <ImageButton
         android:id="@+id/button_main_menu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:backgroundTint="@color/baby_blue"
-        app:srcCompat="@drawable/ic_main_menu"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@color/blue"
+        android:contentDescription="@string/app_name"
         android:padding="50dp"
         android:scaleType="fitCenter"
-        android:adjustViewBounds="true"/>
+        app:srcCompat="@drawable/ic_main_menu" />
 
 </android.widget.LinearLayout>

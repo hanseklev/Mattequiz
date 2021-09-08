@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.Mattequiz" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Mattequiz" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">@color/orange</item>
