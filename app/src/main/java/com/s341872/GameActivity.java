@@ -155,8 +155,9 @@ public class GameActivity extends AppCompatActivity {
         } else {
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
             finalScore = String.format("%s/%s", score, this.totalQuestions);
-            Intent intent = new Intent(this, GameEndActivity.class);
-            startActivity(intent);
+
+            //Intent intent = new Intent(this, GameEndActivity.class);
+            //startActivity(intent);
         }
     }
 
