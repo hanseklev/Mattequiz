@@ -19,7 +19,7 @@ public class GameEndActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_end);
 
-        final ImageButton mainMenuBtn = (ImageButton) findViewById(R.id.button_main_menu);
+        final ImageButton mainMenuBtn = findViewById(R.id.button_main_menu);
         final ImageButton showStatsBtn = (ImageButton) findViewById(R.id.button_stats_2);
 
         mainMenuBtn.setOnClickListener(view -> {
@@ -32,7 +32,7 @@ public class GameEndActivity extends AppCompatActivity {
         });
 
         // Retrieving final score from GameActivity.java
-        String fs = GameActivity.getFinalScore();
+        String fs = getIntent().getStringExtra("finalScore");
 
         // Displaying final score
         final TextView resultText = findViewById(R.id.txt_final_score);
