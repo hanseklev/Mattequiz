@@ -1,9 +1,9 @@
 package com.s341872;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
@@ -17,13 +17,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener {
 
-    private int totalQuestions = PreferencesActivity.getTotalQuestions();
+    private final int totalQuestions = PreferencesActivity.getTotalQuestions();
     private QuestionArray questionArray = new QuestionArray();
     private int currentQuestion = 0;
     private int score;
-    private static String finalScore;
     private TextView gameProgressText;
     private TextView questionText;
     private TextView answerText;
@@ -32,8 +31,6 @@ public class GameActivity extends AppCompatActivity {
     public void onBackPressed() {
         CancelGameDialogFragment endGameDialog = new CancelGameDialogFragment();
         endGameDialog.show(getSupportFragmentManager(), "endGame");
-
-
     }
 
     @Override
@@ -159,6 +156,9 @@ public class GameActivity extends AppCompatActivity {
             questionTxt.setText(questionArray.getQuestion(currentQuestion));
 
         } else {
+            //TODO: make EndGame fragment
+            String finalScore = String.format("Score: %s/%s", score, totalQuestions);
+            Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
             finalScore = String.format("%s/%s", score, this.totalQuestions);
 
@@ -183,5 +183,13 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        finish();
+    }
 
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
+    }
 }
