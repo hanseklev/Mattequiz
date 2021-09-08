@@ -149,11 +149,9 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
             questionTxt.setText(questionArray.getQuestion(currentQuestion));
 
         } else {
-            //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
-            finalScore = String.format("%s/%s", score, this.totalQuestions);
-
-            //Intent intent = new Intent(this, GameEndActivity.class);
-            //startActivity(intent);
+            //TODO: make EndGame fragment
+            String finalScore = String.format("Score: %s/%s", score, totalQuestions);
+            Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
         }
     }
 
