@@ -160,7 +160,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
             String finalScore = String.format("Score: %s/%s", score, totalQuestions);
             Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
-            finalScore = String.format("%s/%s", score, this.totalQuestions);
 
             // Storing string set in SharedPreferences
             SharedPreferences statsSharedPrefs = getSharedPreferences("statistics", MODE_PRIVATE);
