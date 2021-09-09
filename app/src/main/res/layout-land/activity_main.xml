@@ -1,44 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/Match"
-    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="380dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_play_button" />
-
-    <LinearLayout
-        style="@style/Match"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageButton
-            android:id="@+id/button_start_game"
-            style="@style/main_screen_land"
-            android:contentDescription="@string/start_game"
-            app:srcCompat="@drawable/ic_play_button" />
+        android:src="@drawable/ic_play_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageButton
-            android:id="@+id/button_stats"
-            style="@style/main_screen_land"
-            android:backgroundTint="@color/orange"
-            android:contentDescription="@string/show_stats"
-            app:srcCompat="@drawable/ic_chart" />
+    <ImageButton
+        android:id="@+id/button_start_game"
+        style="@style/main_screen_button"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/start_game"
+        app:layout_constraintBottom_toTopOf="@+id/button_stats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_play_button" />
+
+    <ImageButton
+        android:id="@+id/button_preferences"
+        style="@style/main_screen_button"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/preferences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/button_stats"
+        app:srcCompat="@drawable/ic_settings_cog" />
+
+    <ImageButton
+        android:id="@+id/button_stats"
+        style="@style/main_screen_button"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/show_stats"
+        app:layout_constraintBottom_toTopOf="@+id/button_preferences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_game"
+        app:srcCompat="@drawable/ic_chart" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group4"
+        android:layout_width="729dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button_preferences,button_start_game,button_stats"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="0dp"
+        app:layout_constraintGuide_percent="0.40" />
 
 
-        <ImageButton
-            android:id="@+id/button_preferences"
-            style="@style/main_screen_land"
-            android:backgroundTint="@color/orange"
-            android:contentDescription="@string/preferences"
-            app:srcCompat="@drawable/ic_settings_cog" />
-    </LinearLayout>
-
-</android.widget.LinearLayout>
+</android.support.constraint.ConstraintLayout>

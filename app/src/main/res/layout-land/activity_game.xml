@@ -1,129 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Match"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:paddingTop="5dp"
     tools:context=".GameActivity">
 
-    <LinearLayout
-        style="@style/flex_1"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txt_game_progress"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginStart="10dp"
-            android:textAlignment="viewStart"
-            android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txt_game_progress"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="viewStart"
+        android:textSize="30sp"
+        android:paddingStart="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_question"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:textSize="28sp" />
+    <TextView
+        android:id="@+id/txt_question"
+        style="@style/gameText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_answer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_game_progress" />
 
-        <TextView
-            android:id="@+id/txt_answer"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:textSize="28sp" />
+    <TextView
+        android:id="@+id/txt_answer"
+        style="@style/gameText"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="88dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/button_game_two"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_two"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_six"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_three"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_one"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/button_submit_answer"
-            android:layout_width="200dp"
-            android:layout_height="75dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="90dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/orange"
-            android:contentDescription="@string/submit_answer"
-            app:srcCompat="@drawable/ic_submit" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/button_game_three"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_three"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_seven"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_four"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_two"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
-        style="@style/flex_1"
+    <Button
+        android:id="@+id/button_game_four"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_four"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_eight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_three"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.Space
+        android:id="@+id/space2"
+
+        style="@style/numPadButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_delete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_zero"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_seven" />
+
+    <Button
+        android:id="@+id/button_game_one"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_one"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_five"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_two"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txt_game_progress"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_game_six"
+        style="@style/numPadButton"
+
+        android:text="@string/btn_game_six"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_zero"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_seven"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_five"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_two" />
+
+    <Button
+        android:id="@+id/button_game_nine"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_nine"
+        app:layout_constraintBottom_toBottomOf="@+id/button_game_zero"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_zero"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_submit_answer"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <Button
+        android:id="@+id/button_game_five"
+        style="@style/numPadButton"
+
+        android:text="@string/btn_game_five"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_nine"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_six"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_one" />
+
+    <Button
+        android:id="@+id/button_game_zero"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_zero"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/space2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_nine"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_six" />
+
+    <ImageButton
+        android:id="@+id/button_game_delete"
+        style="@style/numPadButton"
+        android:contentDescription="@string/btn_game_erase"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/space2"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_eight"
+        app:srcCompat="@drawable/ic_backspace" />
+
+    <Button
+        android:id="@+id/button_game_eight"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_eight"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_seven"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_four" />
+
+    <ImageButton
+        android:id="@+id/button_submit_answer"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/orange"
+        android:contentDescription="@string/submit_answer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_submit" />
+
+    <Button
+        android:id="@+id/button_game_seven"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_seven"
+        app:layout_constraintBottom_toTopOf="@+id/space2"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_eight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_six"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_three" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="10dp"
-        android:columnCount="4"
-        android:rowCount="3"
-        android:useDefaultMargins="true">
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="785dp" />
 
-        <Button
-            android:id="@+id/button_game_one"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_one" />
+    <android.support.constraint.Group
+        android:id="@+id/group"
+        android:layout_width="69dp"
+        android:layout_height="53dp"
+        app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,space2,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two"
+        tools:layout_editor_absoluteY="5dp" />
 
-        <Button
-            android:id="@+id/button_game_two"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_two" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="518dp" />
 
-        <Button
-            android:id="@+id/button_game_three"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_three" />
+    <android.support.constraint.Group
+        android:id="@+id/group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="button_game_three,button_game_six,button_game_nine,button_game_delete,button_game_zero,button_game_eight,button_game_five,button_game_two,button_game_one,button_game_four,button_game_seven,button_submit_answer" />
 
+    <android.support.constraint.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="333dp"
+        tools:layout_editor_absoluteY="186dp" />
 
-        <Button
-            android:id="@+id/button_game_four"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_four" />
-
-        <Button
-            android:id="@+id/button_game_five"
-            style="@style/numPadButton_land"
-
-            android:text="@string/btn_game_five" />
-
-        <Button
-            android:id="@+id/button_game_six"
-            style="@style/numPadButton_land"
-
-            android:text="@string/btn_game_six" />
-
-
-        <Button
-            android:id="@+id/button_game_seven"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_seven" />
-
-        <Button
-            android:id="@+id/button_game_eight"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_eight" />
-
-        <Button
-            android:id="@+id/button_game_nine"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_nine" />
-
-
-        <Button
-            android:id="@+id/button_game_zero"
-            style="@style/numPadButton_land"
-            android:text="@string/btn_game_zero" />
-
-        <android.support.v4.widget.Space style="@style/numPadButton_land"
-
-            />
-
-        <ImageButton
-            android:id="@+id/button_game_delete"
-            style="@style/numPadButton_land"
-            android:backgroundTint="@color/red"
-            android:contentDescription="@string/btn_game_erase"
-            app:srcCompat="@drawable/ic_backspace" />
-
-    </GridLayout>
-
-
-</android.widget.LinearLayout>
+</android.support.constraint.ConstraintLayout>

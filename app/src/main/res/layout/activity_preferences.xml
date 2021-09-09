@@ -1,72 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
-    android:divider="@drawable/divider_30dp"
+    style="@style/Match"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:showDividers="middle"
+    android:paddingTop="5dp"
     tools:context=".PreferencesActivity">
 
     <TextView
+        android:id="@+id/textView2"
         style="@style/textView100"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:text="@string/change_language" />
+        android:text="@string/change_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/btn_german_language"
+        style="@style/ImageButtonFillFrame"
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:gravity="center">
 
-        <ImageButton
-            android:id="@+id/btn_norwegian_language"
-            style="@style/ImageButtonFillFrame"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/norwegian"
-            app:srcCompat="@drawable/ic_flag_norwegian" />
+        android:contentDescription="@string/german"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_norwegian_language"
+        app:layout_constraintTop_toTopOf="@+id/btn_norwegian_language"
+        app:srcCompat="@drawable/ic_flag_germany" />
 
-        <ImageButton
-            android:id="@+id/btn_german_language"
-            style="@style/ImageButtonFillFrame"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="25dp"
-
-            android:contentDescription="@string/german"
-            app:srcCompat="@drawable/ic_flag_germany" />
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/btn_norwegian_language"
+        style="@style/ImageButtonFillFrame"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/norwegian"
+        app:layout_constraintEnd_toStartOf="@+id/btn_german_language"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_flag_norwegian" />
 
     <TextView
+        android:id="@+id/textView3"
         style="@style/textView100"
-        android:text="@string/total_questions" />
+        android:text="@string/total_questions"
+        app:layout_constraintBottom_toTopOf="@+id/view_total_questions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_norwegian_language"
+        app:layout_constraintVertical_bias="0.521" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center">
+    <Button
+        android:id="@+id/btn_total_questions"
+        style="@style/textView100"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/change_total_questions"
+        app:layout_constraintBottom_toBottomOf="@+id/view_total_questions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_total_questions" />
 
-        <TextView
-            android:id="@+id/view_total_questions"
-            style="@style/textView100"
-            android:layout_width="100dp"/>
-
-        <Button
-            android:id="@+id/btn_total_questions"
-            style="@style/textView100"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/change_total_questions" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/view_total_questions"
+        style="@style/textView100"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_reset_stats"
+        app:layout_constraintEnd_toStartOf="@+id/btn_total_questions"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_reset_stats"
         style="@style/textView100"
         android:background="@color/red"
-        android:text="@string/reset_stats" />
+        android:text="@string/reset_stats"
+        android:textColor="#FFE57F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+    <android.support.constraint.Group
+        android:id="@+id/group3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btn_total_questions,view_total_questions"
+        tools:layout_editor_absoluteY="5dp" />
+
+</android.support.constraint.ConstraintLayout>
