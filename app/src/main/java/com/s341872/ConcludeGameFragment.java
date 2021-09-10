@@ -13,13 +13,15 @@ import android.view.ViewGroup;
 import java.util.Objects;
 
 public class ConcludeGameFragment extends DialogFragment {
-/**
+
     public interface ConcludeGameListener {
         void onDialogPositiveClick(DialogFragment dialog);
 
         //void onDialogNegativeClick(DialogFragment dialog);
     }
 
+    ConcludeGameFragment listener;
+/**
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class ConcludeGameFragment extends DialogFragment {
                         listener.onDialogPositiveClick(ConcludeGameFragment.this));
         return builder.create();
     }
-*/
+
 
     @NonNull
     @Override
@@ -39,7 +41,7 @@ public class ConcludeGameFragment extends DialogFragment {
             .setPositiveButton(getString(R.string.ok), (dialog, which) -> {} )
             .create();
     }
-
+*/
 
 //    ConcludeGameListener listener;
 

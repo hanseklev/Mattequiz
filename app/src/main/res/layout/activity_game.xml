@@ -195,4 +195,11 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,space2,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two" />
 
+    <!-- Game end fragment holder-->
+    <FrameLayout
+        android:id="@+id/fragment_game_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -10,6 +10,7 @@
 
     <!--THEME COLORS-->
     <color name="white">#FFEDDA</color>
+    <color name="white2">#FFFFFF</color>
     <color name="blue">#3DB2FF</color>
     <color name="orange">#FFB830</color>
     <color name="red">#FF2442</color>

@@ -1,5 +1,9 @@
 package com.s341872;
 
+//import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,6 +30,7 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
     private TextView gameProgressText;
     private TextView questionText;
     private TextView answerText;
+    private static String finalScore;
 
     @Override
     public void onBackPressed() {
@@ -108,19 +113,30 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         });
     }
 
+    //private boolean gameEnded = false;
+
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        questionArray = new QuestionArray();
-        questionArray.addAll((QuestionArray) savedInstanceState.getSerializable("questions"));
+      //  if (!gameEnded) {
+            questionArray = new QuestionArray();
+            questionArray.addAll((QuestionArray) savedInstanceState.getSerializable("questions"));
 
-        currentQuestion = savedInstanceState.getInt("currentQuestion");
-        score = savedInstanceState.getInt("score");
+            currentQuestion = savedInstanceState.getInt("currentQuestion");
+            score = savedInstanceState.getInt("score");
 
-        gameProgressText.setText(getGameProgressString());
-        questionText.setText(questionArray.getQuestion(currentQuestion));
-        answerText.setText(savedInstanceState.getCharSequence("currentAnswer"));
+            gameProgressText.setText(getGameProgressString());
+            questionText.setText(questionArray.getQuestion(currentQuestion));
+            answerText.setText(savedInstanceState.getCharSequence("currentAnswer"));
+   /**
+        } else {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            GameEndFragment gameEndFragment = new GameEndFragment();
+            ft.add(R.id.fragment_game_end, gameEndFragment, "game end");
+            ft.commit();
+        }
+    */
     }
 
     @Override
@@ -157,12 +173,12 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
         } else {
             //TODO: make EndGame fragment
-            new ConcludeGameFragment().show(getChildFragmentManager(), "");
-            ConcludeGameFragment gameConclusionDialog = new ConcludeGameFragment();
-            gameConclusionDialog.show(getSupportFragmentManager(), "gameConclusion");
+            //new ConcludeGameFragment().show(getChildFragmentManager(), "");
+            //ConcludeGameFragment gameConclusionDialog = new ConcludeGameFragment();
+            //gameConclusionDialog.show(getSupportFragmentManager(), "gameConclusion");
 
-            String finalScore = String.format("Score: %s/%s", score, totalQuestions);
-            Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
+            finalScore = String.format("%s/%s", score, totalQuestions);
+            Toast.makeText(getApplicationContext(), "Din score: "+finalScore, Toast.LENGTH_LONG).show();
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
 
             // Storing string set in SharedPreferences
@@ -173,18 +189,27 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
             if (statistics != null) {
                 HashSet<String> statistics2 = new HashSet<String>(statistics);
-                statistics2.add(score + " "
+                statistics2.add(finalScore + " "
                         + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
                 statsSharedPrefs.edit().putStringSet("stats", statistics2).apply();
             }
             else {
                 statistics = new HashSet<String>();
-                statistics.add(score + " "
+                statistics.add(finalScore + " "
                         + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
                 statsSharedPrefs.edit().putStringSet("stats", statistics).apply();
             }
+
+           // gameEnded = true;
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            GameEndFragment gameEndFragment = new GameEndFragment();
+            ft.add(R.id.fragment_game_end, gameEndFragment, "game end");
+            ft.commit();
+
         }
     }
+
+    public static String getFinalScore(){return finalScore;}
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
@@ -195,4 +220,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
     public void onDialogNegativeClick(DialogFragment dialog) {
         Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
     }
+
+
 }

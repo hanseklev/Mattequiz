@@ -19,6 +19,9 @@
     <string name="dialog_yes">Jawohl</string>
     <string name="dialog_no">Nein</string>
 
+    <!--Game end header -->
+    <string name="game_end_header">Ihre Punktzahl</string>
+
     <!-- Statistics -->
     <string name="scores">Partituren</string>
 
