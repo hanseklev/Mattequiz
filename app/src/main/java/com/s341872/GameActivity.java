@@ -157,6 +157,10 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
         } else {
             //TODO: make EndGame fragment
+            new ConcludeGameFragment().show(getChildFragmentManager(), "");
+            ConcludeGameFragment gameConclusionDialog = new ConcludeGameFragment();
+            gameConclusionDialog.show(getSupportFragmentManager(), "gameConclusion");
+
             String finalScore = String.format("Score: %s/%s", score, totalQuestions);
             Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));

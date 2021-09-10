@@ -89,5 +89,9 @@
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
+    <style name="Widget.Theme.Mattequiz.NoActionBar.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
 
 </resources>
