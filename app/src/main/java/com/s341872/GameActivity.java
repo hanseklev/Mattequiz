@@ -1,5 +1,6 @@
 package com.s341872;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -9,6 +10,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener {
@@ -142,6 +148,7 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         return actualCount + "/" + totalQuestions;
     }
 
+
     private void nextQuestion(TextView questionTxt) {
         if (currentQuestion < questionArray.size() - 1) {
             currentQuestion++;
@@ -150,8 +157,32 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
         } else {
             //TODO: make EndGame fragment
+            new ConcludeGameFragment().show(getChildFragmentManager(), "");
+            ConcludeGameFragment gameConclusionDialog = new ConcludeGameFragment();
+            gameConclusionDialog.show(getSupportFragmentManager(), "gameConclusion");
+
             String finalScore = String.format("Score: %s/%s", score, totalQuestions);
             Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
+            //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
+
+            // Storing string set in SharedPreferences
+            SharedPreferences statsSharedPrefs = getSharedPreferences("statistics", MODE_PRIVATE);
+            //statsSharedPrefs.edit().clear().commit();
+
+            Set<String> statistics = statsSharedPrefs.getStringSet("stats", null);
+
+            if (statistics != null) {
+                HashSet<String> statistics2 = new HashSet<String>(statistics);
+                statistics2.add(score + " "
+                        + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
+                statsSharedPrefs.edit().putStringSet("stats", statistics2).apply();
+            }
+            else {
+                statistics = new HashSet<String>();
+                statistics.add(score + " "
+                        + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
+                statsSharedPrefs.edit().putStringSet("stats", statistics).apply();
+            }
         }
     }
 
