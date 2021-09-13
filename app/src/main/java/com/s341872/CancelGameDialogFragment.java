@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.Objects;
 
 public class CancelGameDialogFragment extends DialogFragment {
+    Dialog dialog;
 
     public interface CancelGameDialogListener {
         void onDialogPositiveClick(DialogFragment dialog);
@@ -23,7 +25,7 @@ public class CancelGameDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+     /*   AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         builder.setMessage(R.string.dialog_cancel_game)
                 .setPositiveButton(R.string.dialog_yes, (dialogInterface, i) ->
                         listener.onDialogPositiveClick(CancelGameDialogFragment.this))
@@ -31,7 +33,21 @@ public class CancelGameDialogFragment extends DialogFragment {
                         listener.onDialogNegativeClick(CancelGameDialogFragment.this)
 
                 );
-        return builder.create();
+        return builder.create();*/
+        dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.fragment_cancel_game_dialog);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+
+        Button positiveButton = dialog.findViewById(R.id.btn_dialog_positive);
+        Button negativeButton = dialog.findViewById(R.id.btn_dialog_negative);
+        positiveButton.setOnClickListener(view -> listener.onDialogPositiveClick(this));
+        negativeButton.setOnClickListener(view -> listener.onDialogNegativeClick(this));
+
+        dialog.create();
+
+        return dialog;
+
     }
 
     @Override

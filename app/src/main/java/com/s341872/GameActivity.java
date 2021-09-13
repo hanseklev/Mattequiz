@@ -157,11 +157,13 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
+        dialog.dismiss();
         finish();
     }
 
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
+        dialog.dismiss();
         Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
     }
 }

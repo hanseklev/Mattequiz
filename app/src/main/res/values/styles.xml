@@ -42,6 +42,13 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="dialogText">
+        <item name="android:textSize">35sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+
     <style name="textView100_land" parent="textView100">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -50,13 +57,13 @@
     <!--    BUTTON STYLES   -->
     <style name="main_screen_button">
         <item name="android:background">@drawable/rounded_corner</item>
-    <!--    <item name="android:layout_marginRight">25dp</item>
-        <item name="android:layout_marginLeft">25dp</item>
-        <item name="android:layout_marginBottom">20dp</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_width">match_parent</item>
--->
+        <!--    <item name="android:layout_marginRight">25dp</item>
+            <item name="android:layout_marginLeft">25dp</item>
+            <item name="android:layout_marginBottom">20dp</item>
+            <item name="android:layout_height">0dp</item>
+            <item name="android:layout_weight">1</item>
+            <item name="android:layout_width">match_parent</item>
+    -->
         <item name="android:scaleType">fitCenter</item>
         <item name="android:adjustViewBounds">true</item>
 

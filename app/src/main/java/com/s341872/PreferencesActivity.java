@@ -21,22 +21,20 @@ public class PreferencesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
+        final TextView totalQuestionsView = findViewById(R.id.view_total_questions);
         ImageButton norwegianLangBtn = findViewById(R.id.btn_norwegian_language);
         ImageButton germanLangBtn = findViewById(R.id.btn_german_language);
+        Button totalQuestionsBtn = findViewById(R.id.btn_total_questions);
 
+        totalQuestionsView.setText(String.valueOf(totalQuestions));
         norwegianLangBtn.setOnClickListener(view -> changeAppLanguage("no"));
         germanLangBtn.setOnClickListener(view -> changeAppLanguage("de"));
-
-        final TextView totalQuestionsView = findViewById(R.id.view_total_questions);
-        totalQuestionsView.setText(totalQuestions + "");
-
-        Button totalQuestionsBtn = findViewById(R.id.btn_total_questions);
         totalQuestionsBtn.setOnClickListener(view -> updateTotalQuestions());
     }
 
 
-    private void changeAppLanguage(String lang) {
-        Locale locale = new Locale(lang);
+    private void changeAppLanguage(String langCode) {
+        Locale locale = new Locale(langCode);
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration cf = res.getConfiguration();
@@ -47,18 +45,18 @@ public class PreferencesActivity extends AppCompatActivity {
         startActivity(refresh);
     }
 
-    private void updateTotalQuestions(){
-        if (totalQuestions < 15){
+    private void updateTotalQuestions() {
+        if (totalQuestions < 15) {
             totalQuestions += 5;
         } else {
             totalQuestions = 5;
         }
 
         final TextView totalQuestionsView = findViewById(R.id.view_total_questions);
-        totalQuestionsView.setText(totalQuestions + "");
+        totalQuestionsView.setText(String.valueOf(totalQuestions));
     }
 
-    public static int getTotalQuestions(){
+    public static int getTotalQuestions() {
         return totalQuestions;
     }
 }
