@@ -27,7 +27,8 @@
     <string name="dialog_no">Nei</string>
 
     <!--Game end header -->
-    <string name="game_end_header">Din poengsum</string>
+    <string name="game_end_header">Din poengsum:</string>
+    <string name="dialog_home">Hjem</string>
 
     <!-- Statistics -->
     <string name="scores">Poengsummer</string>

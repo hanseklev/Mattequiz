@@ -29,7 +29,6 @@ public class CancelGameDialogFragment extends DialogFragment {
                         listener.onDialogPositiveClick(CancelGameDialogFragment.this))
                 .setNegativeButton(R.string.dialog_no, (dialogInterface, i) ->
                         listener.onDialogNegativeClick(CancelGameDialogFragment.this)
-
                 );
         return builder.create();
     }

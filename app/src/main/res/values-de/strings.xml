@@ -20,7 +20,8 @@
     <string name="dialog_no">Nein</string>
 
     <!--Game end header -->
-    <string name="game_end_header">Ihre Punktzahl</string>
+    <string name="game_end_header">Ihre Punktzahl:</string>
+    <string name="dialog_home">Hjem</string>
 
     <!-- Statistics -->
     <string name="scores">Partituren</string>

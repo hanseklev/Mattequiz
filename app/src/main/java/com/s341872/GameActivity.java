@@ -21,7 +21,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener {
+public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener,
+                                                               GameEndDialogFragment.GameEndDialogListener {
 
     private final int totalQuestions = PreferencesActivity.getTotalQuestions();
     private QuestionArray questionArray = new QuestionArray();
@@ -172,11 +173,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
             questionTxt.setText(questionArray.getQuestion(currentQuestion));
 
         } else {
-            //TODO: make EndGame fragment
-            //new ConcludeGameFragment().show(getChildFragmentManager(), "");
-            //ConcludeGameFragment gameConclusionDialog = new ConcludeGameFragment();
-            //gameConclusionDialog.show(getSupportFragmentManager(), "gameConclusion");
-
             finalScore = String.format("%s/%s", score, totalQuestions);
             Toast.makeText(getApplicationContext(), "Din score: "+finalScore, Toast.LENGTH_LONG).show();
             //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
@@ -189,23 +185,19 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
             if (statistics != null) {
                 HashSet<String> statistics2 = new HashSet<String>(statistics);
-                statistics2.add(finalScore + " "
+                statistics2.add(finalScore + "   "
                         + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
                 statsSharedPrefs.edit().putStringSet("stats", statistics2).apply();
             }
             else {
                 statistics = new HashSet<String>();
-                statistics.add(finalScore + " "
+                statistics.add(finalScore + "   "
                         + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
                 statsSharedPrefs.edit().putStringSet("stats", statistics).apply();
             }
 
-           // gameEnded = true;
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            GameEndFragment gameEndFragment = new GameEndFragment();
-            ft.add(R.id.fragment_game_end, gameEndFragment, "game end");
-            ft.commit();
-
+            GameEndDialogFragment gameEndDialog = new GameEndDialogFragment();
+            gameEndDialog.show(getSupportFragmentManager(), "game over");
         }
     }
 
@@ -221,5 +213,8 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
     }
 
-
+    @Override
+    public void onEndClick(DialogFragment dialog){
+        finish();
+    }
 }

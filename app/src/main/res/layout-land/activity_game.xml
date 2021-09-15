@@ -215,11 +215,4 @@
         tools:layout_editor_absoluteX="333dp"
         tools:layout_editor_absoluteY="186dp" />
 
-    <!-- Game end fragment holder-->
-    <FrameLayout
-        android:id="@+id/fragment_game_end"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="3dp"/>
-
 </android.support.constraint.ConstraintLayout>
