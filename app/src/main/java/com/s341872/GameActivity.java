@@ -1,10 +1,13 @@
 package com.s341872;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,7 +16,7 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener {
 
-    private final int totalQuestions = PreferencesActivity.getTotalQuestions();
+    private int totalQuestions;
     private QuestionArray questionArray = new QuestionArray();
     private int currentQuestion = 0;
     private int score;
@@ -32,6 +35,8 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        totalQuestions = Integer.parseInt(Utils.getSharedPrefString(getApplicationContext(), "questions", R.string.questions_default));
+        Log.d("questions", String.valueOf(totalQuestions));
         questionText = findViewById(R.id.txt_question);
         answerText = findViewById(R.id.txt_answer);
         gameProgressText = findViewById(R.id.txt_game_progress);
@@ -79,27 +84,14 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
         numPadBtn9.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "9")));
 
+
         numPadBtnDelete.setOnClickListener(view -> {
             String oldText = String.valueOf(answerText.getText());
             if (oldText.length() > 0)
                 answerText.setText(oldText.substring(0, oldText.length() - 1));
         });
 
-        submitAnswerBtn.setOnClickListener(view -> {
-            if (answerText.getText().length() > 0) {
-                if (answerText.getText().equals(questionArray.getAnswer(currentQuestion))) {
-                    score++;
-                    Toast.makeText(getApplicationContext(), ":)", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), ":(", Toast.LENGTH_SHORT).show();
-                }
-                answerText.setText("");
-                gameProgressText.setText(getGameProgressString());
-                nextQuestion(questionText);
-            } else {
-                Log.d("Answer", "Answer not submitted");
-            }
-        });
+        submitAnswerBtn.setOnClickListener(this::evaluateAnswer);
     }
 
     @Override
@@ -125,6 +117,23 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         outState.putInt("score", score);
         outState.putInt("currentQuestion", currentQuestion);
         outState.putCharSequence("currentAnswer", answerText.getText());
+    }
+
+    //TODO: make a better answer-feedback functioniality
+    private void evaluateAnswer(View view) {
+        if (answerText.getText().length() > 0) {
+            if (answerText.getText().equals(questionArray.getAnswer(currentQuestion))) {
+                score++;
+                Toast.makeText(getApplicationContext(), ":)", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), ":(", Toast.LENGTH_SHORT).show();
+            }
+            answerText.setText("");
+            gameProgressText.setText(getGameProgressString());
+            nextQuestion(questionText);
+        } else {
+            Log.d("Answer", "Answer not submitted");
+        }
     }
 
     // Updates screen when numpad-buttons is pressed.
@@ -154,6 +163,7 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
             Toast.makeText(getApplicationContext(), finalScore, Toast.LENGTH_LONG).show();
         }
     }
+
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {

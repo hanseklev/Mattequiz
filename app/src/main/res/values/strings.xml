@@ -33,10 +33,30 @@
     <string name="change_language">Velg språk</string>
     <string name="norwegian">Norsk</string>
     <string name="german">Tysk</string>
-    <string name="total_questions">Antall Spørsmål</string>
-    <string name="change_total_questions">Endre</string>
+    <string name="total_questions_title">Antall Spørsmål</string>
+    <string name="total_questions_summary">Anzahl der Fragen im Spiel</string>
 
-    <!--Game questions-->
+    <array name="languages_array">
+        <item>@string/norwegian</item>
+        <item>@string/german</item>
+    </array>
+
+    <!--    The array values holds the corresponding language codes    -->
+    <string name="language_default" translatable="false">no</string>
+    <array name="languages_array_values">
+        <item>"no"</item>
+        <item>"de"</item>
+    </array>
+
+    <string name="questions_default" translatable="false">5</string>
+
+    <string-array name="question_entries_preferences">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+    </string-array>
+
+    <!--    Game questions  -->
     <!--Last item is the answer-->
 
     <string-array name="question1">

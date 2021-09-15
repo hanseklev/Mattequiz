@@ -2,11 +2,10 @@ package com.s341872;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.TextView;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class StatsActivity extends AppCompatActivity {

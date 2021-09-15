@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <DropDownPreference
+        android:defaultValue="@string/language_default"
+        android:entries="@array/languages_array"
+        android:entryValues="@array/languages_array_values"
+        android:key="language"
+        android:title="@string/change_language" />
+
+    <DropDownPreference
+        android:defaultValue="@string/questions_default"
+        android:entries="@array/question_entries_preferences"
+        android:entryValues="@array/question_entries_preferences"
+        android:key="questions"
+        android:title="@string/total_questions_title" />
+
+    <Preference
+        android:key="reset_stats"
+        android:summary="@string/reset_stats"
+        android:title="@string/reset_stats" />
+
+</PreferenceScreen>

@@ -4,6 +4,9 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.Log;
 
+
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,25 +32,11 @@ public class QuestionArray implements Serializable {
 
         Collections.shuffle(questionList);
 
-        //size = PreferencesActivity.getTotalQuestions();
-
         questionList = new ArrayList<>(questionList.subList(0, size));
     }
 
     public void addAll(QuestionArray arr) {
         questionList.addAll(arr.questionList);
-    }
-
-    public void clear() {
-        questionList.clear();
-    }
-
-    public ArrayList<Question> getQuestionList(int size) {
-        return questionList;
-    }
-
-    public void setQuestionList(ArrayList<Question> questionList) {
-        this.questionList = questionList;
     }
 
     public String getQuestion(int i) {
@@ -62,10 +51,7 @@ public class QuestionArray implements Serializable {
         return questionList.size();
     }
 
-    public ArrayList<Question> getList() {
-        return questionList;
-    }
-
+    @NonNull
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
