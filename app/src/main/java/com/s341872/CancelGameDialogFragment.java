@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
 public class CancelGameDialogFragment extends DialogFragment {
     Dialog dialog;
 

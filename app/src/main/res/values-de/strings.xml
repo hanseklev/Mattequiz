@@ -14,11 +14,13 @@
     <string name="total_questions_title">Gesamte Fragen</string>
     <string name="total_questions_summary">Endre  spørsmål i spillet</string>
 
-
     <!--Game dialogs -->
     <string name="dialog_cancel_game">Spiele beenden?</string>
     <string name="dialog_yes">Jawohl</string>
     <string name="dialog_no">Nein</string>
+
+    <!--Game end header -->
+    <string name="game_end_header">Ihre Punktzahl:</string>
 
     <!-- Statistics -->
     <string name="scores">Partituren</string>

@@ -56,6 +56,9 @@
         <item>15</item>
     </string-array>
 
+    <!--Game end header -->
+    <string name="game_end_header">Din poengsum:</string>
+
     <!--    Game questions  -->
     <!--Last item is the answer-->
 
@@ -153,4 +156,5 @@
         <item>@array/question14</item>
         <item>@array/question15</item>
     </array>
+
 </resources>
