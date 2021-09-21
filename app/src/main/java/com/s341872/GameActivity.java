@@ -7,12 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,10 +26,6 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
     private TextView gameProgressText;
     private TextView questionText;
     private TextView answerText;
-
-    public static String getFinalScore() {
-        return finalScore;
-    }
 
     @Override
     public void onBackPressed() {
@@ -91,7 +85,6 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
         numPadBtn8.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "8")));
 
         numPadBtn9.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "9")));
-
 
         numPadBtnDelete.setOnClickListener(view -> {
             String oldText = String.valueOf(answerText.getText());
@@ -168,21 +161,16 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
             questionTxt.setText(questionArray.getQuestion(currentQuestion));
         } else {
             finalScore = String.format("%s/%s", score, totalQuestions);
-            //Toast.makeText(getApplicationContext(), "Din score: " + finalScore, Toast.LENGTH_LONG).show();
-            //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
-
             saveStats();
 
-            GameEndDialogFragment gameEndDialog = new GameEndDialogFragment();
+            GameEndDialogFragment gameEndDialog = new GameEndDialogFragment(finalScore);
             gameEndDialog.show(getSupportFragmentManager(), "game over");
         }
     }
 
+    // Storing string set in SharedPreferences
     private void saveStats() {
-        // Storing string set in SharedPreferences
-        SharedPreferences statsSharedPrefs = getSharedPreferences("statistics", MODE_PRIVATE);
-        //statsSharedPrefs.edit().clear().commit();
-
+        SharedPreferences statsSharedPrefs = getSharedPreferences(Utils.Constants.STATS_KEY, MODE_PRIVATE);
         Set<String> statistics = statsSharedPrefs.getStringSet("stats", null);
 
         if (statistics != null) {
@@ -207,7 +195,6 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         dialog.dismiss();
-        Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
     }
 
     @Override

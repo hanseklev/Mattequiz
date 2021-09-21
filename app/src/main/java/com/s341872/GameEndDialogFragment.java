@@ -14,12 +14,17 @@ import android.widget.TextView;
 
 public class GameEndDialogFragment extends DialogFragment {
     Dialog dialog;
+    String finalScore;
+    GameEndDialogListener listener;
 
     public interface GameEndDialogListener {
         void onHomeClick(DialogFragment dialog);
     }
 
-    GameEndDialogListener listener;
+    public GameEndDialogFragment(String finalScore){
+        this.finalScore = finalScore;
+    }
+
 
     @NonNull
     @Override
@@ -30,7 +35,7 @@ public class GameEndDialogFragment extends DialogFragment {
         dialog.setCancelable(false);
 
         TextView scoreText = dialog.findViewById(R.id.text_score);
-        scoreText.setText(GameActivity.getFinalScore());
+        scoreText.setText(finalScore);
 
         ImageButton homeButton = dialog.findViewById(R.id.btn_home);
         homeButton.setOnClickListener(view -> listener.onHomeClick(this));
