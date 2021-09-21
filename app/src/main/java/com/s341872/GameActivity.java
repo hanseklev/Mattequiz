@@ -7,21 +7,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class GameActivity extends AppCompatActivity implements CancelGameDialogFragment.CancelGameDialogListener, GameEndDialogFragment.GameEndDialogListener {
+public class GameActivity extends AppCompatActivity implements ConfirmationDialogFragment.OnClickListener, GameEndDialogFragment.GameEndDialogListener {
 
+    private static String finalScore;
     private int totalQuestions;
     private QuestionArray questionArray = new QuestionArray();
     private int currentQuestion = 0;
@@ -29,11 +26,11 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
     private TextView gameProgressText;
     private TextView questionText;
     private TextView answerText;
-    private static String finalScore;
 
     @Override
     public void onBackPressed() {
-        CancelGameDialogFragment endGameDialog = new CancelGameDialogFragment();
+        String cancelGameText = getResources().getString(R.string.dialog_cancel_game);
+        ConfirmationDialogFragment endGameDialog = new ConfirmationDialogFragment(cancelGameText);
         endGameDialog.show(getSupportFragmentManager(), "endGame");
     }
 
@@ -43,7 +40,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         setContentView(R.layout.activity_game);
 
         totalQuestions = Integer.parseInt(Utils.getSharedPrefString(getApplicationContext(), "questions", R.string.questions_default));
-        Log.d("questions", String.valueOf(totalQuestions));
         questionText = findViewById(R.id.txt_question);
         answerText = findViewById(R.id.txt_answer);
         gameProgressText = findViewById(R.id.txt_game_progress);
@@ -64,7 +60,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
 
         if (savedInstanceState == null) {
             questionArray.seedArray(getResources(), totalQuestions);
-            Log.d("GAME", questionArray.toString());
             questionText.setText(questionArray.getQuestion(currentQuestion));
             gameProgressText.setText(getGameProgressString());
         }
@@ -90,7 +85,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         numPadBtn8.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "8")));
 
         numPadBtn9.setOnClickListener(view -> answerText.setText(updateAnswerText(answerText, "9")));
-
 
         numPadBtnDelete.setOnClickListener(view -> {
             String oldText = String.valueOf(answerText.getText());
@@ -126,25 +120,27 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         outState.putCharSequence("currentAnswer", answerText.getText());
     }
 
-    //TODO: make a better answer-feedback functioniality
     private void evaluateAnswer(View view) {
         if (answerText.getText().length() > 0) {
             if (answerText.getText().equals(questionArray.getAnswer(currentQuestion))) {
                 score++;
-                Toast.makeText(getApplicationContext(), ":)", Toast.LENGTH_SHORT).show();
+                Utils.showToast(getApplicationContext(), ":)", 500);
             } else {
-                Toast.makeText(getApplicationContext(), ":(", Toast.LENGTH_SHORT).show();
+                Utils.showToast(getApplicationContext(), ":(", 500);
             }
             answerText.setText("");
             gameProgressText.setText(getGameProgressString());
             nextQuestion(questionText);
         } else {
-            Log.d("Answer", "Answer not submitted");
+            String answerNotSubmittedText = getResources().getString(R.string.answer_not_submitted);
+            Utils.showToast(getApplicationContext(), answerNotSubmittedText, 1000);
         }
     }
 
-    // Updates screen when numpad-buttons is pressed.
-    // Limits maximum input to 4 digits
+    /**
+     * Updates screen when numpad-buttons is pressed.
+     * Limits maximum input to 4 digits
+     **/
     private String updateAnswerText(TextView answer, String newInput) {
         String oldText = String.valueOf(answer.getText());
         if (oldText.length() < 4) {
@@ -152,6 +148,7 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
         }
         return oldText;
     }
+
 
     private String getGameProgressString() {
         int actualCount = currentQuestion + 1;
@@ -161,39 +158,33 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
     private void nextQuestion(TextView questionTxt) {
         if (currentQuestion < questionArray.size() - 1) {
             currentQuestion++;
-
             questionTxt.setText(questionArray.getQuestion(currentQuestion));
-
         } else {
             finalScore = String.format("%s/%s", score, totalQuestions);
-            Toast.makeText(getApplicationContext(), "Din score: "+finalScore, Toast.LENGTH_LONG).show();
-            //questionTxt.setText(String.format("Score:%s/%s", score, this.totalQuestions));
+            saveStats();
 
-            // Storing string set in SharedPreferences
-            SharedPreferences statsSharedPrefs = getSharedPreferences("statistics", MODE_PRIVATE);
-            //statsSharedPrefs.edit().clear().commit();
-
-            Set<String> statistics = statsSharedPrefs.getStringSet("stats", null);
-
-            if (statistics != null) {
-                HashSet<String> statistics2 = new HashSet<String>(statistics);
-                statistics2.add(finalScore + "   "
-                        + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
-                statsSharedPrefs.edit().putStringSet("stats", statistics2).apply();
-            }
-            else {
-                statistics = new HashSet<String>();
-                statistics.add(finalScore + "   "
-                        + new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm").format(new Date()));
-                statsSharedPrefs.edit().putStringSet("stats", statistics).apply();
-            }
-            GameEndDialogFragment gameEndDialog = new GameEndDialogFragment();
+            GameEndDialogFragment gameEndDialog = new GameEndDialogFragment(finalScore);
             gameEndDialog.show(getSupportFragmentManager(), "game over");
         }
     }
 
+    // Storing string set in SharedPreferences
+    private void saveStats() {
+        SharedPreferences statsSharedPrefs = getSharedPreferences(Utils.Constants.STATS_KEY, MODE_PRIVATE);
+        Set<String> statistics = statsSharedPrefs.getStringSet("stats", null);
 
-    public static String getFinalScore(){return finalScore;}
+        if (statistics != null) {
+            HashSet<String> statistics2 = new HashSet<>(statistics);
+            statistics2.add(finalScore + "   "
+                    + Utils.getTimeStamp());
+            statsSharedPrefs.edit().putStringSet("stats", statistics2).apply();
+        } else {
+            Set<String> newStatistics = new HashSet<>();
+            newStatistics.add(finalScore + "   " +
+                    Utils.getTimeStamp());
+            statsSharedPrefs.edit().putStringSet("stats", newStatistics).apply();
+        }
+    }
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
@@ -204,7 +195,6 @@ public class GameActivity extends AppCompatActivity implements CancelGameDialogF
     @Override
     public void onDialogNegativeClick(DialogFragment dialog) {
         dialog.dismiss();
-        Toast.makeText(getApplicationContext(), "THE SHOW MUST GO ON", Toast.LENGTH_LONG).show();
     }
 
     @Override

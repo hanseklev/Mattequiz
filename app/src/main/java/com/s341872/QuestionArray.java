@@ -21,8 +21,6 @@ public class QuestionArray implements Serializable {
     //Returns an array with randomized questions and desired length
     public void seedArray(Resources res, int size) {
         TypedArray typedArrQuestions = res.obtainTypedArray(R.array.questions_container);
-        Log.d("QUESTION", res.toString());
-        Log.d("QUESTION", String.valueOf(size));
 
         for (int i = 0; i < typedArrQuestions.length(); i++) {
             int id = typedArrQuestions.getResourceId(i, 0);

@@ -8,10 +8,9 @@ public class Question implements Serializable {
     private final String answer;
 
     /**
-     * @param strArray holds an array with length equal to 3.
+     * @param strArray holds an array which contains a math-addition question
      *                 The two first indexes are the addends and are mapped to the question string
      *                 The last index holds the answer
-     *
      */
 
     public Question(String[] strArray) {

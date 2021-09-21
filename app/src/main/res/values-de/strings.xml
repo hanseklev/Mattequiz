@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--    MAIN SCREEN     -->
     <string name="app_name">Mattes Quiz</string>
     <string name="start_game">Spiele starten</string>
-    <string name="show_stats">Siehe Statistiken</string>
+    <string name="show_stats">Statistiken</string>
     <string name="preferences">Einstellungen</string>
+
+    <!--        PREFERENCES     -->
     <string name="change_language">Sprache ändern</string>
     <string name="norwegian">Norwegische</string>
     <string name="german">Deutsch</string>
     <string name="reset_stats">Zurücksetzen</string>
+    <string name="reset_stats_summary">Alle Statistiken und Einstellungen zurücksetzen</string>
+    <string name="reset_stats_success">Alle Einstellungen zurückgesetzt</string>
 
+
+
+    <!--        GAME VIEW STRINGS       -->
     <string name="btn_game_erase">Löschen</string>
     <string name="submit_answer">Antworten</string>
     <string name="total_questions_title">Gesamte Fragen</string>
-    <string name="total_questions_summary">Endre  spørsmål i spillet</string>
+    <string name="total_questions_summary">Anzahl der Fragen im Spiel</string>
 
-    <!--Game dialogs -->
+
+    <!--        Game dialogs        -->
     <string name="dialog_cancel_game">Spiele beenden?</string>
+    <string name="main_screen">Gehe zum Startbildschirm</string>
+    <string name="answer_not_submitted">Sie müssen eine Antwort geben!</string>
     <string name="dialog_yes">Jawohl</string>
     <string name="dialog_no">Nein</string>
 
-    <!--Game end header -->
+    <!--        Game end header     -->
     <string name="game_end_header">Ihre Punktzahl:</string>
 
-    <!-- Statistics -->
+    <!--        Statistics       -->
     <string name="scores">Partituren</string>
 
 </resources>

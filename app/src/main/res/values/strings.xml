@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?><!--Main language norwegian (NO)-->
 <resources>
+
+    <!--    MAIN SCREEN     -->
     <string name="app_name">Mattequiz</string>
     <string name="start_game">Start spillet</string>
-    <string name="show_stats">Se statistikk</string>
+    <string name="show_stats">Statistikk</string>
     <string name="preferences">Preferanser</string>
-    <string name="reset_stats">Nullstill</string>
 
-    <!--Game buttons-->
+
+    <!--        GAME VIEW STRINGS       -->
     <string name="btn_game_one" translatable="false">1</string>
     <string name="btn_game_two" translatable="false">2</string>
     <string name="btn_game_three" translatable="false">3</string>
@@ -17,25 +19,24 @@
     <string name="btn_game_eight" translatable="false">8</string>
     <string name="btn_game_nine" translatable="false">9</string>
     <string name="btn_game_zero" translatable="false">0</string>
-    <string name="btn_game_erase">Slett</string>
 
+    <string name="btn_game_erase">Slett</string>
     <string name="submit_answer">Svar</string>
 
-    <!--Game dialogs -->
+    <!--        Game dialogs        -->
     <string name="dialog_cancel_game">Avslutte spill?</string>
+    <string name="main_screen">Gå til startskjermen</string>
+    <string name="answer_not_submitted">Du må gi et svar!</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nei</string>
 
-    <!-- Statistics -->
+    <!--        Statistics      -->
     <string name="scores">Poengsummer</string>
 
-    <!-- Preferences -->
+    <!--        Preferences     -->
     <string name="change_language">Velg språk</string>
     <string name="norwegian">Norsk</string>
     <string name="german">Tysk</string>
-    <string name="total_questions_title">Antall Spørsmål</string>
-    <string name="total_questions_summary">Anzahl der Fragen im Spiel</string>
-
     <array name="languages_array">
         <item>@string/norwegian</item>
         <item>@string/german</item>
@@ -48,15 +49,22 @@
         <item>"de"</item>
     </array>
 
+    <string name="total_questions_title">Antall Spørsmål</string>
+    <string name="total_questions_summary">Endre  spørsmål i spillet</string>
     <string name="questions_default" translatable="false">5</string>
-
     <string-array name="question_entries_preferences">
         <item>5</item>
         <item>10</item>
         <item>15</item>
     </string-array>
 
-    <!--Game end header -->
+
+    <string name="reset_stats">Nullstill</string>
+    <string name="reset_stats_summary">Nullstill statistikk og preferanser</string>
+    <string name="reset_stats_success">Alle preferanser nullstilt</string>
+
+
+    <!--        Game end header     -->
     <string name="game_end_header">Din poengsum:</string>
 
     <!--    Game questions  -->
