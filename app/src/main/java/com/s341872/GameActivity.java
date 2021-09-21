@@ -30,8 +30,9 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
     @Override
     public void onBackPressed() {
         String cancelGameText = getResources().getString(R.string.dialog_cancel_game);
-        ConfirmationDialogFragment endGameDialog = new ConfirmationDialogFragment(cancelGameText);
-        endGameDialog.show(getSupportFragmentManager(), "endGame");
+        ConfirmationDialogFragment cancelGameDialog = new ConfirmationDialogFragment(cancelGameText);
+        cancelGameDialog.setCancelable(false);
+        cancelGameDialog.show(getSupportFragmentManager(), "endGame");
     }
 
     @Override
@@ -164,6 +165,7 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
             saveStats();
 
             GameEndDialogFragment gameEndDialog = new GameEndDialogFragment(finalScore);
+            gameEndDialog.setCancelable(false);
             gameEndDialog.show(getSupportFragmentManager(), "game over");
         }
     }
