@@ -8,19 +8,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
-public class CancelGameDialogFragment extends DialogFragment {
+
+public class ConfirmationDialogFragment extends DialogFragment {
     Dialog dialog;
+    OnClickListener listener;
+    private final String dialogText;
 
-    public interface CancelGameDialogListener {
+    public interface OnClickListener {
         void onDialogPositiveClick(DialogFragment dialog);
 
         void onDialogNegativeClick(DialogFragment dialog);
     }
 
-    CancelGameDialogListener listener;
+    public ConfirmationDialogFragment(String dialogText) {
+        this.dialogText = dialogText;
+    }
+
 
     @NonNull
     @Override
@@ -29,6 +37,10 @@ public class CancelGameDialogFragment extends DialogFragment {
         dialog.setContentView(R.layout.fragment_cancel_game_dialog);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
+
+        TextView tv = dialog.findViewById(R.id.dialog_fragment_text);
+        tv.setText(dialogText);
+
 
         Button positiveButton = dialog.findViewById(R.id.btn_dialog_positive);
         Button negativeButton = dialog.findViewById(R.id.btn_dialog_negative);
@@ -40,12 +52,13 @@ public class CancelGameDialogFragment extends DialogFragment {
         return dialog;
     }
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         try {
-            listener = (CancelGameDialogListener) context;
+            listener = (OnClickListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(requireActivity().toString() + " must implement CancelGameDialogListener");
         }

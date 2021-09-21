@@ -1,33 +1,27 @@
 package com.s341872;
 
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 
 import androidx.preference.DropDownPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import java.util.Locale;
+import com.s341872.Utils.Constants;
 
 
 public class PreferencesFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
-
-    public static final String LANG_KEY = "language";
-    private static final String QUESTIONS_KEY = "questions";
-    //private static final String RESET_STATS_KEY = "reset_stats";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
 
-        DropDownPreference languagePreference = findPreference(LANG_KEY);
-        DropDownPreference questions = findPreference(QUESTIONS_KEY);
+        DropDownPreference languagePreference = findPreference(Constants.LANG_KEY);
+        DropDownPreference questions = findPreference(Constants.QUESTIONS_KEY);
+        Preference resetStatsBtn = findPreference(Constants.RESET_STATS_KEY);
 
-        String langValue = Utils.getSharedPrefString(requireContext(), LANG_KEY, R.string.language_default);
-        String questionValue = Utils.getSharedPrefString(requireContext(), QUESTIONS_KEY, R.string.questions_default);
+        String langValue = Utils.getSharedPrefString(requireContext(), Constants.LANG_KEY, R.string.language_default);
+        String questionValue = Utils.getSharedPrefString(requireContext(), Constants.QUESTIONS_KEY, R.string.questions_default);
 
         if (languagePreference != null) {
             String langEntry = getEntryFromValue(languagePreference, langValue);
@@ -36,6 +30,10 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Sha
 
         if (questions != null)
             questions.setSummary(String.valueOf(questionValue));
+
+        if (resetStatsBtn != null) {
+            resetStatsBtn.setOnPreferenceClickListener(preference -> removeAllStats());
+        }
     }
 
     @Override
@@ -49,16 +47,14 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Sha
 
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
-            if (key.equals(LANG_KEY)) {
+            if (key.equals(Constants.LANG_KEY)) {
                 editor.putString(key, newValue);
-                changeAppLanguage(newValue);
+                Utils.changeAppLanguage(getResources(), newValue);
             }
-            if (key.equals(QUESTIONS_KEY)) {
+            if (key.equals(Constants.QUESTIONS_KEY)) {
                 editor.putString(key, newValue);
             }
-
             editor.apply();
-
         }
     }
 
@@ -97,18 +93,12 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Sha
         return "-1";
     }
 
-    //TODO: maybe restart activity onchange to get instant change
-    private void changeAppLanguage(String langCode) {
-        Locale locale = new Locale(langCode);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration cf = res.getConfiguration();
-        cf.locale = locale;
-        res.updateConfiguration(cf, dm);
-        /*
-            Intent refresh = new Intent(this, PreferencesActivity.class);
-            finish();
-            startActivity(refresh);
-        */
+    public boolean removeAllStats() {
+        getPreferenceManager().getSharedPreferences().edit().clear().apply();
+        String removeStatsText = getResources().getString(R.string.reset_stats_summary) + "?";
+        ConfirmationDialogFragment dialog = new ConfirmationDialogFragment(removeStatsText);
+        dialog.show(getParentFragmentManager(), "deleteStats");
+
+        return true;
     }
 }

@@ -17,19 +17,15 @@ public class StatsActivity extends AppCompatActivity {
 
         final TextView textView = findViewById(R.id.textView);
 
-        SharedPreferences statsSharedPrefs = getSharedPreferences("statistics", MODE_PRIVATE);
+        SharedPreferences statsSharedPrefs = getSharedPreferences(Utils.Constants.STATS_KEY, MODE_PRIVATE);
 
         Set<String> statistics = statsSharedPrefs.getStringSet("stats", null);
         if (statistics != null) {
-            String stats = "";
+            StringBuilder stats = new StringBuilder();
             for (String stat : statistics) {
-                stats += stat + "\n\n";
+                stats.append(stat).append("\n\n");
             }
-            textView.setText(stats);
+            textView.setText(stats.toString());
         }
-        else {
-
-        }
-
     }
 }
