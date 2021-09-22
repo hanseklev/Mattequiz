@@ -8,6 +8,7 @@
     android:paddingTop="5dp"
     tools:context=".GameActivity">
 
+    <!--
     <TextView
         android:id="@+id/txt_game_progress"
         android:layout_width="match_parent"
@@ -21,7 +22,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08"
         tools:layout_editor_absoluteX="0dp" />
+-->
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201" />
 
     <TextView
         android:id="@+id/txt_question"
@@ -34,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_game_progress" />
+        app:layout_constraintTop_toBottomOf="@id/progress_bar" />
 
     <TextView
         android:id="@+id/txt_answer"
