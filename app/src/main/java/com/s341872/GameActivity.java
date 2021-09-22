@@ -10,12 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
-
-
 public class GameActivity extends AppCompatActivity implements ConfirmationDialogFragment.OnClickListener, GameEndDialogFragment.GameEndDialogListener {
 
     private static String finalScore;
@@ -23,7 +22,8 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
     private QuestionArray questionArray = new QuestionArray();
     private int currentQuestion = 0;
     private int score;
-    private TextView gameProgressText;
+    //private TextView gameProgressText;
+    private ProgressBar gameProgressBar;
     private TextView questionText;
     private TextView answerText;
 
@@ -41,9 +41,11 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
         setContentView(R.layout.activity_game);
 
         totalQuestions = Integer.parseInt(Utils.getSharedPrefString(getApplicationContext(), "questions", R.string.questions_default));
+        gameProgressBar = findViewById(R.id.progress_bar);
+        gameProgressBar.setMax(totalQuestions);
         questionText = findViewById(R.id.txt_question);
         answerText = findViewById(R.id.txt_answer);
-        gameProgressText = findViewById(R.id.txt_game_progress);
+        //gameProgressText = findViewById(R.id.txt_game_progress);
 
         final Button numPadBtn1 = findViewById(R.id.button_game_one);
         final Button numPadBtn2 = findViewById(R.id.button_game_two);
@@ -62,7 +64,8 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
         if (savedInstanceState == null) {
             questionArray.seedArray(getResources(), totalQuestions);
             questionText.setText(questionArray.getQuestion(currentQuestion));
-            gameProgressText.setText(getGameProgressString());
+            gameProgressBar.setProgress(currentQuestion);
+            //gameProgressText.setText(getGameProgressString());
         }
 
         //Event handlers for buttons
@@ -106,7 +109,8 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
         currentQuestion = savedInstanceState.getInt("currentQuestion");
         score = savedInstanceState.getInt("score");
 
-        gameProgressText.setText(getGameProgressString());
+        //gameProgressText.setText(getGameProgressString());
+        gameProgressBar.setProgress(getGameProgress());
         questionText.setText(questionArray.getQuestion(currentQuestion));
         answerText.setText(savedInstanceState.getCharSequence("currentAnswer"));
     }
@@ -130,7 +134,8 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
                 Utils.showToast(getApplicationContext(), ":(", 500);
             }
             answerText.setText("");
-            gameProgressText.setText(getGameProgressString());
+            gameProgressBar.setProgress(getGameProgress());
+            //gameProgressText.setText(getGameProgressString());
             nextQuestion(questionText);
         } else {
             String answerNotSubmittedText = getResources().getString(R.string.answer_not_submitted);
@@ -151,9 +156,11 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
     }
 
 
-    private String getGameProgressString() {
+    //private String getGameProgressString() {
+    private int getGameProgress(){
         int actualCount = currentQuestion + 1;
-        return actualCount + "/" + totalQuestions;
+        return actualCount;
+        //return actualCount + "/" + totalQuestions;
     }
 
     private void nextQuestion(TextView questionTxt) {
