@@ -36,7 +36,6 @@ public class ConfirmationDialogFragment extends DialogFragment {
         dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.fragment_cancel_game_dialog);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false);
 
         TextView tv = dialog.findViewById(R.id.dialog_fragment_text);
         tv.setText(dialogText);

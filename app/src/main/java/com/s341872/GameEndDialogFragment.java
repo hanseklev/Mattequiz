@@ -17,6 +17,7 @@ public class GameEndDialogFragment extends DialogFragment {
     String finalScore;
     GameEndDialogListener listener;
 
+
     public interface GameEndDialogListener {
         void onHomeClick(DialogFragment dialog);
     }
@@ -32,7 +33,6 @@ public class GameEndDialogFragment extends DialogFragment {
         dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.fragment_game_end_dialog);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.setCancelable(false);
 
         TextView scoreText = dialog.findViewById(R.id.text_score);
         scoreText.setText(finalScore);
