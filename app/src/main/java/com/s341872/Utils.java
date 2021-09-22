@@ -25,7 +25,12 @@ public class Utils {
         public static final String DEFAULT_LANG_CODE = "no";
     }
 
-
+    /**
+     * @param context getApplicationContext()
+     * @param key     the sharedPref key
+     * @param id      pointer to default resource string
+     * @return String from the specified key
+     */
     public static String getSharedPrefString(Context context, String key, int id) {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         String defLang = context.getResources().getString(id);
@@ -40,13 +45,14 @@ public class Utils {
         return new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm", Locale.ITALY).format(new Date());
     }
 
-    public static void changeAppLanguage(Resources res, String langCode) {
+    public static void setAppLanguage(Resources res, String langCode) {
         Locale locale = new Locale(langCode);
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration cf = res.getConfiguration();
         cf.locale = locale;
         res.updateConfiguration(cf, dm);
     }
+
 
     public static void showToast(Context context, String msg, int duration) {
         Toast toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);

@@ -35,12 +35,13 @@ public class GameActivity extends AppCompatActivity implements ConfirmationDialo
         cancelGameDialog.show(getSupportFragmentManager(), "endGame");
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        totalQuestions = Integer.parseInt(Utils.getSharedPrefString(getApplicationContext(), "questions", R.string.questions_default));
+        totalQuestions = Integer.parseInt(Utils.getSharedPrefString(getApplicationContext(), Utils.Constants.QUESTIONS_KEY, R.string.questions_default));
         questionText = findViewById(R.id.txt_question);
         answerText = findViewById(R.id.txt_answer);
         gameProgressText = findViewById(R.id.txt_game_progress);

@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton showStatsBtn = findViewById(R.id.button_stats);
         final ImageButton showPreferences = findViewById(R.id.button_preferences);
 
+        //Loads the saved language on start up
+        Utils.setAppLanguage(getResources(), Utils.getSharedPrefString(getApplicationContext(),
+                Utils.Constants.LANG_KEY, R.string.language_default));
+
         startGameBtn.setOnClickListener(view -> {
             Intent intent = new Intent(this, GameActivity.class);
             startActivity(intent);

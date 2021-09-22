@@ -21,10 +21,11 @@
     <ImageButton
         android:id="@+id/button_start_game"
         style="@style/main_screen_button"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/primary_light"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="@color/secondary_light"
         android:contentDescription="@string/start_game"
         app:layout_constraintBottom_toTopOf="@+id/button_stats"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,29 +37,26 @@
     <ImageButton
         android:id="@+id/button_stats"
         style="@style/main_screen_button"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:backgroundTint="@color/secondary_light"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:contentDescription="@string/show_stats"
-        app:layout_constraintBottom_toTopOf="@+id/button_preferences"
+        app:layout_constraintBottom_toBottomOf="@+id/button_preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_start_game"
+        app:layout_constraintStart_toEndOf="@+id/button_preferences"
         app:srcCompat="@drawable/ic_chart" />
 
     <ImageButton
         android:id="@+id/button_preferences"
         style="@style/main_screen_button"
-        android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:backgroundTint="@color/secondary_light"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
         android:contentDescription="@string/preferences"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_stats"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_stats"
         app:srcCompat="@drawable/ic_settings_cog" />
 
     <androidx.constraintlayout.widget.Guideline

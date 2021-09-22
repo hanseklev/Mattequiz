@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/primary_light</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/primary_light</item>
+
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/primary_light</item>
         <item name="android:textColor">@color/primary_dark</item>
@@ -17,7 +18,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="ThemeOverlay.Mattequiz.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
-        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+        <item name="fullscreenBackgroundColor">@color/primary_light</item>
+        <item name="fullscreenTextColor">@color/primary_dark</item>
     </style>
 </resources>

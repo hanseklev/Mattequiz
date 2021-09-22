@@ -22,7 +22,7 @@ public class PreferencesActivity extends AppCompatActivity implements Confirmati
         getApplicationContext().getSharedPreferences(Utils.Constants.STATS_KEY, MODE_PRIVATE).edit().clear().apply();
         Utils.getSharedPref(getApplicationContext(), Utils.Constants.LANG_KEY).edit().clear().apply();
         Utils.getSharedPref(getApplicationContext(), Utils.Constants.QUESTIONS_KEY).edit().clear().apply();
-        Utils.changeAppLanguage(getResources(), Utils.Constants.DEFAULT_LANG_CODE);
+        Utils.setAppLanguage(getResources(), Utils.Constants.DEFAULT_LANG_CODE);
 
         dialog.dismiss();
         String resetStatsSuccessText = getResources().getString(R.string.reset_stats_success);

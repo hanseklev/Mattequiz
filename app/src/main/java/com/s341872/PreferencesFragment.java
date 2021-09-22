@@ -49,7 +49,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Sha
 
             if (key.equals(Constants.LANG_KEY)) {
                 editor.putString(key, newValue);
-                Utils.changeAppLanguage(getResources(), newValue);
+                Utils.setAppLanguage(getResources(), newValue);
             }
             if (key.equals(Constants.QUESTIONS_KEY)) {
                 editor.putString(key, newValue);
