@@ -32,7 +32,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/orange</item>
+        <item name="android:textColor">@color/secondary_light</item>
         <item name="android:textSize">35sp</item>
         <item name="fontWeight">700</item>
     </style>
@@ -45,7 +45,7 @@
     <style name="dialogText">
         <item name="android:textSize">35sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/primary_dark</item>
 
     </style>
 
@@ -94,14 +94,15 @@
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:textSize">25sp</item>
-        <item name="backgroundTint">@color/white</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="backgroundTint">@color/secondary_light</item>
+        <item name="android:textColor">@color/primary_dark</item>
     </style>
 
     <style name="numPadButton_land" parent="numPadButton">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
+
     <style name="Widget.Theme.Mattequiz.NoActionBar.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>

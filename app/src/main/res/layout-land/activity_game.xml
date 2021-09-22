@@ -14,9 +14,9 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
+        android:paddingStart="10dp"
         android:textAlignment="viewStart"
         android:textSize="30sp"
-        android:paddingStart="10dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,16 +45,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_game_two"
-        style="@style/numPadButton"
-        android:text="@string/btn_game_two"
-        app:layout_constraintBottom_toTopOf="@+id/button_game_six"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_three"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_game_one"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button_game_three"
         style="@style/numPadButton"
         android:text="@string/btn_game_three"
@@ -74,16 +64,6 @@
         app:layout_constraintStart_toEndOf="@+id/button_game_three"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.legacy.widget.Space
-        android:id="@+id/space2"
-
-        style="@style/numPadButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_delete"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_game_zero"
-        app:layout_constraintTop_toBottomOf="@+id/button_game_seven" />
-
     <Button
         android:id="@+id/button_game_one"
         style="@style/numPadButton"
@@ -94,17 +74,6 @@
         app:layout_constraintStart_toEndOf="@+id/txt_game_progress"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_game_six"
-        style="@style/numPadButton"
-
-        android:text="@string/btn_game_six"
-        app:layout_constraintBottom_toTopOf="@+id/button_game_zero"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_seven"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_game_five"
-        app:layout_constraintTop_toBottomOf="@+id/button_game_two" />
 
     <Button
         android:id="@+id/button_game_nine"
@@ -132,27 +101,48 @@
         style="@style/numPadButton"
         android:text="@string/btn_game_zero"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/space2"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_delete"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_game_nine"
         app:layout_constraintTop_toBottomOf="@+id/button_game_six" />
 
+    <Button
+        android:id="@+id/button_game_six"
+        style="@style/numPadButton"
+
+        android:text="@string/btn_game_six"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_zero"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_seven"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_five"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_two" />
+
+    <Button
+        android:id="@+id/button_game_two"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_two"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_six"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_three"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_game_one"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/button_game_delete"
         style="@style/numPadButton"
+        android:layout_width="100dp"
         android:contentDescription="@string/btn_game_erase"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/button_submit_answer"
+        app:layout_constraintEnd_toStartOf="@+id/button_submit_answer"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/space2"
-        app:layout_constraintTop_toBottomOf="@+id/button_game_eight"
+        app:layout_constraintStart_toEndOf="@+id/button_game_zero"
         app:srcCompat="@drawable/ic_backspace" />
 
     <Button
         android:id="@+id/button_game_eight"
         style="@style/numPadButton"
         android:text="@string/btn_game_eight"
-        app:layout_constraintBottom_toTopOf="@+id/button_game_delete"
+        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_game_seven"
@@ -160,22 +150,21 @@
 
     <ImageButton
         android:id="@+id/button_submit_answer"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/secondary_dark"
         android:contentDescription="@string/submit_answer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button_game_eight"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_eight"
         app:srcCompat="@drawable/ic_submit" />
 
     <Button
         android:id="@+id/button_game_seven"
         style="@style/numPadButton"
         android:text="@string/btn_game_seven"
-        app:layout_constraintBottom_toTopOf="@+id/space2"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_delete"
         app:layout_constraintEnd_toStartOf="@+id/button_game_eight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_game_six"
@@ -192,7 +181,7 @@
         android:id="@+id/group"
         android:layout_width="69dp"
         android:layout_height="53dp"
-        app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,space2,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two"
+        app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two"
         tools:layout_editor_absoluteY="5dp" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -200,13 +189,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="518dp" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="button_game_three,button_game_six,button_game_nine,button_game_delete,button_game_zero,button_game_eight,button_game_five,button_game_two,button_game_one,button_game_four,button_game_seven,button_submit_answer" />
+        app:constraint_referenced_ids="button_game_three,button_game_six,button_game_nine,button_game_delete,button_game_zero,button_game_eight,button_game_five,button_game_two,button_game_one,button_game_four,button_game_seven,button_submit_answer"
+        tools:layout_editor_absoluteY="5dp" />
 
     <androidx.constraintlayout.widget.Barrier
         android:layout_width="wrap_content"

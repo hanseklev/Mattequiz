@@ -14,6 +14,14 @@
     <color name="blue">#3DB2FF</color>
     <color name="orange">#FFB830</color>
     <color name="red">#FF2442</color>
+
+
+    <color name="primary_light">#FFF5EB</color>
+    <color name="primary_dark">#FF54574D</color>
+    <color name="secondary_light">#DEEDF0</color>
+    <color name="secondary_dark">#F4C7AB</color>
+    
+    
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A200">#FF40C4FF</color>

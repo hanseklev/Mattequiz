@@ -11,12 +11,12 @@
     <TextView
         android:id="@+id/txt_game_progress"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
+        android:paddingEnd="10dp"
         android:textAlignment="viewEnd"
         android:textSize="30sp"
-        android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_question"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08"
@@ -27,8 +27,8 @@
         android:id="@+id/txt_question"
         style="@style/gameText"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_answer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,20 +40,10 @@
         android:id="@+id/txt_answer"
         style="@style/gameText"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_question" />
-
-    <Button
-        android:id="@+id/button_game_one"
-        style="@style/numPadButton"
-        android:text="@string/btn_game_one"
-        app:layout_constraintBottom_toTopOf="@+id/button_game_four"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_two"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_answer" />
 
     <Button
         android:id="@+id/button_game_two"
@@ -108,10 +98,21 @@
         app:layout_constraintTop_toBottomOf="@+id/button_game_one" />
 
     <Button
+        android:id="@+id/button_game_one"
+        style="@style/numPadButton"
+        android:text="@string/btn_game_one"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_four"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_two"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_answer"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <Button
         android:id="@+id/button_game_seven"
         style="@style/numPadButton"
         android:text="@string/btn_game_seven"
-        app:layout_constraintBottom_toTopOf="@+id/space2"
+        app:layout_constraintBottom_toTopOf="@+id/button_game_delete"
         app:layout_constraintEnd_toStartOf="@+id/button_game_eight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,55 +132,46 @@
         android:id="@+id/button_game_nine"
         style="@style/numPadButton"
         android:text="@string/btn_game_nine"
-        app:layout_constraintBottom_toTopOf="@+id/button_game_delete"
+        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_game_eight"
         app:layout_constraintTop_toBottomOf="@+id/button_game_six" />
 
-    <androidx.legacy.widget.Space
-        android:id="@+id/space2"
-
-        style="@style/numPadButton"
-        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_zero"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_game_seven" />
-
     <Button
         android:id="@+id/button_game_zero"
         style="@style/numPadButton"
         android:text="@string/btn_game_zero"
-        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
-        app:layout_constraintEnd_toStartOf="@+id/button_game_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_submit_answer"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/space2"
+        app:layout_constraintStart_toEndOf="@+id/button_game_delete"
         app:layout_constraintTop_toBottomOf="@+id/button_game_eight" />
 
     <ImageButton
         android:id="@+id/button_game_delete"
         style="@style/numPadButton"
+        android:layout_height="100dp"
         android:contentDescription="@string/btn_game_erase"
-        app:layout_constraintBottom_toTopOf="@+id/button_submit_answer"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_game_zero"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_game_zero"
-        app:layout_constraintTop_toBottomOf="@+id/button_game_nine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_seven"
         app:srcCompat="@drawable/ic_backspace" />
 
     <ImageButton
         android:id="@+id/button_submit_answer"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="17dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/secondary_dark"
         android:contentDescription="@string/submit_answer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_game_zero"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_nine"
         app:srcCompat="@drawable/ic_submit" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -193,6 +185,10 @@
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,space2,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two" />
+        app:constraint_referenced_ids="button_game_three,button_game_delete,button_game_zero,button_game_seven,button_game_eight,button_game_nine,button_game_six,button_game_five,button_game_four,button_game_one,button_game_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="5dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -39,7 +38,7 @@
         style="@style/main_screen_button"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/secondary_light"
         android:contentDescription="@string/preferences"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +52,7 @@
         style="@style/main_screen_button"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/secondary_light"
         android:contentDescription="@string/show_stats"
         app:layout_constraintBottom_toTopOf="@+id/button_preferences"
         app:layout_constraintEnd_toEndOf="parent"
