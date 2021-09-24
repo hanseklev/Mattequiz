@@ -8,6 +8,7 @@
 
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/primary_light</item>
+        <item name="android:colorBackground">@color/primary_light</item>
         <item name="android:textColor">@color/primary_dark</item>
         <item name="android:fontFamily">@font/font</item>
 

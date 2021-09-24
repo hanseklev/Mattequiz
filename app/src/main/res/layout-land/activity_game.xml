@@ -9,24 +9,37 @@
     tools:context=".GameActivity">
 
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:progressDrawable="@drawable/game_progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/txt_game_progress"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:paddingStart="10dp"
+        android:paddingEnd="0dp"
         android:textAlignment="viewStart"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
 
     <TextView
         android:id="@+id/txt_question"
         style="@style/gameText"
         android:layout_width="200dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_answer"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.503"

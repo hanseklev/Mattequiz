@@ -42,7 +42,7 @@ public class Utils {
     }
 
     public static String getTimeStamp() {
-        return new SimpleDateFormat("dd/MMM/yyyy 'at' HH:mm", Locale.ITALY).format(new Date());
+        return new SimpleDateFormat("dd.MM.yy HH:mm", Locale.forLanguageTag("no")).format(new Date());
     }
 
     public static void setAppLanguage(Resources res, String langCode) {
