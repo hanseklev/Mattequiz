@@ -10,6 +10,11 @@
         <item name="android:windowBackground">@color/primary_light</item>
         <item name="android:colorBackground">@color/primary_light</item>
         <item name="android:textColor">@color/primary_dark</item>
+        <item name="android:textColorPrimary">@color/primary_dark</item>
+        <item name="android:textColorSecondary">@color/primary_dark</item>
+        <item name="android:textColorTertiary">@color/primary_dark</item>
+
+
         <item name="android:fontFamily">@font/font</item>
 
         <item name="android:textSize">25sp</item>
