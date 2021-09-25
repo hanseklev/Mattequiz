@@ -19,8 +19,4 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="ThemeOverlay.Mattequiz.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/primary_light</item>
-        <item name="fullscreenTextColor">@color/primary_dark</item>
-    </style>
 </resources>

@@ -1,10 +1,13 @@
-package com.s341872;
+package com.s341872.ui.stats;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.TextView;
+
+import com.s341872.R;
+import com.s341872.utils.Utils;
 
 import java.util.Set;
 

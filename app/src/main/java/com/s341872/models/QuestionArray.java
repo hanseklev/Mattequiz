@@ -1,11 +1,11 @@
-package com.s341872;
+package com.s341872.models;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.util.Log;
-
 
 import androidx.annotation.NonNull;
+
+import com.s341872.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;

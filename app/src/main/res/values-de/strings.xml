@@ -21,7 +21,6 @@
     <string name="btn_game_erase">Löschen</string>
     <string name="submit_answer">Antworten</string>
     <string name="total_questions_title">Gesamte Fragen</string>
-    <string name="total_questions_summary">Anzahl der Fragen im Spiel</string>
 
 
     <!--        Game dialogs        -->
@@ -35,6 +34,5 @@
     <string name="game_end_header">Ihre Punktzahl:</string>
 
     <!--        Statistics       -->
-    <string name="scores">Partituren</string>
 
 </resources>

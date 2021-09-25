@@ -11,6 +11,8 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import com.s341872.models.QuestionArray;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

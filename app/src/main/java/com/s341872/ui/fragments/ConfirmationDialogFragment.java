@@ -1,4 +1,4 @@
-package com.s341872;
+package com.s341872.ui.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.fragment.app.DialogFragment;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.s341872.R;
 
 
 public class ConfirmationDialogFragment extends DialogFragment {

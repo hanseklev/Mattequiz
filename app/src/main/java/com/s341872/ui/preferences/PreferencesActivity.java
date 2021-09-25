@@ -1,9 +1,13 @@
-package com.s341872;
+package com.s341872.ui.preferences;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+
+import com.s341872.ui.fragments.ConfirmationDialogFragment;
+import com.s341872.R;
+import com.s341872.utils.Utils;
 
 public class PreferencesActivity extends AppCompatActivity implements ConfirmationDialogFragment.OnClickListener {
 

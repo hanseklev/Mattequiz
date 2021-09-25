@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mattequiz.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,16 +20,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".ui.game.GameActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
-            android:name=".StatsActivity"
+            android:name=".ui.stats.StatsActivity"
             android:label="@string/show_stats"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".ui.preferences.PreferencesActivity"
             android:label="@string/preferences"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
     </application>
 
 </manifest>

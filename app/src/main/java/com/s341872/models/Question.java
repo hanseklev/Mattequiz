@@ -1,4 +1,4 @@
-package com.s341872;
+package com.s341872.models;
 
 import java.io.Serializable;
 
