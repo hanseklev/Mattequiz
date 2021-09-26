@@ -31,7 +31,6 @@
     <string name="dialog_no">Nei</string>
 
     <!--        Statistics      -->
-    <string name="scores">Poengsummer</string>
 
     <!--        Preferences     -->
     <string name="change_language">Velg språk</string>
@@ -50,7 +49,6 @@
     </array>
 
     <string name="total_questions_title">Antall Spørsmål</string>
-    <string name="total_questions_summary">Endre  spørsmål i spillet</string>
     <string name="questions_default" translatable="false">5</string>
     <string-array name="question_entries_preferences">
         <item>5</item>

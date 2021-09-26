@@ -17,7 +17,7 @@
 
     <Preference
         android:key="reset_stats"
-        android:summary="@string/reset_stats"
+        android:summary="@string/reset_stats_summary"
         android:title="@string/reset_stats" />
 
 </PreferenceScreen>

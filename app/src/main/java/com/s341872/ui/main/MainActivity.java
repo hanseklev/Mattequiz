@@ -1,4 +1,4 @@
-package com.s341872;
+package com.s341872.ui.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,12 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.widget.ImageButton;
+
+import com.s341872.ui.game.GameActivity;
+import com.s341872.ui.preferences.PreferencesActivity;
+import com.s341872.R;
+import com.s341872.ui.stats.StatsActivity;
+import com.s341872.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 

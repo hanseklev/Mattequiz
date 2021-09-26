@@ -4,7 +4,7 @@
     android:id="@+id/dialog_confirmation"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@drawable/background_fragment">
+    android:background="@drawable/bg_dialog_fragment">
 
     <TextView
         android:id="@+id/dialog_fragment_text"
@@ -24,7 +24,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/bg_rounded_corner_50in"
         android:text="@string/dialog_yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
@@ -39,7 +39,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/bg_rounded_corner_50in"
         android:text="@string/dialog_no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

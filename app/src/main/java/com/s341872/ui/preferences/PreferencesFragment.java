@@ -1,4 +1,4 @@
-package com.s341872;
+package com.s341872.ui.preferences;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import androidx.preference.DropDownPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import com.s341872.Utils.Constants;
+import com.s341872.R;
+import com.s341872.utils.Utils;
+import com.s341872.utils.Utils.Constants;
+import com.s341872.ui.fragments.ConfirmationDialogFragment;
 
 
 public class PreferencesFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {

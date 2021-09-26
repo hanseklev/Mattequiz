@@ -5,4 +5,4 @@
     style="@style/Match"
     android:orientation="vertical"
     android:paddingTop="5dp"
-    tools:context=".PreferencesActivity" />
+    tools:context=".ui.preferences.PreferencesActivity" />

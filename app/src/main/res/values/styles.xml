@@ -7,105 +7,40 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="Wrap">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="MatchHeight" parent="Match">
-        <item name="android:layout_width">wrap_content</item>
-    </style>
-
-    <style name="MatchWidth" parent="Match">
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="flex_1">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-    </style>
-
     <!--    TYPOGRAPHY  -->
-
-    <style name="textView100">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/secondary_light</item>
-        <item name="android:textSize">35sp</item>
-        <item name="fontWeight">700</item>
-    </style>
 
     <style name="gameText">
         <item name="android:textSize">45sp</item>
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="scoreText">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
     <style name="dialogText">
         <item name="android:textSize">35sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/primary_dark</item>
-
-    </style>
-
-    <style name="textView100_land" parent="textView100">
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">match_parent</item>
     </style>
 
     <!--    BUTTON STYLES   -->
     <style name="main_screen_button">
-        <item name="android:background">@drawable/rounded_corner</item>
-        <!--    <item name="android:layout_marginRight">25dp</item>
-            <item name="android:layout_marginLeft">25dp</item>
-            <item name="android:layout_marginBottom">20dp</item>
-            <item name="android:layout_height">0dp</item>
-            <item name="android:layout_weight">1</item>
-            <item name="android:layout_width">match_parent</item>
-    -->
+        <item name="android:background">@drawable/bg_rounded_corner_50in</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:adjustViewBounds">true</item>
 
-    </style>
-
-    <style name="main_screen_land">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/rounded_corner</item>
-        <item name="android:layout_marginTop">25dp</item>
-        <item name="android:layout_marginLeft">35dp</item>
-        <item name="android:layout_marginRight">35dp</item>
-        <item name="android:layout_marginBottom">20dp</item>
-
-        <item name="android:scaleType">fitCenter</item>
-        <item name="android:adjustViewBounds">true</item>
-    </style>
-
-    <style name="ImageButtonFillFrame">
-        <item name="android:adjustViewBounds">true</item>
-        <item name="android:scaleType">fitCenter</item>
-        <item name="android:background">@null</item>
     </style>
 
     <style name="numPadButton">
-        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:background">@drawable/bg_rounded_corner_50in</item>
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="fontWeight">700</item>
         <item name="backgroundTint">@color/secondary_light</item>
         <item name="android:textColor">@color/primary_dark</item>
-    </style>
-
-    <style name="numPadButton_land" parent="numPadButton">
-        <item name="android:layout_width">80dp</item>
-        <item name="android:layout_height">80dp</item>
-    </style>
-
-    <style name="Widget.Theme.Mattequiz.NoActionBar.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/black_overlay</item>
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
 </resources>
